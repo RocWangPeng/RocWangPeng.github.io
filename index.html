@@ -114,11 +114,6 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
@@ -132,6 +127,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
   </ul>
@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/hello-world%20copy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +174,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/hello-world%20copy/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/" class="post-title-link" itemprop="url">Json最强攻略</a>
         </h1>
 
         <div class="post-meta">
@@ -185,7 +185,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-29 12:47:01 / 修改时间：12:47:03" itemprop="dateCreated datePublished" datetime="2020-03-29T12:47:01+08:00">2020-03-29</time>
+              <time title="创建时间：2020-03-29 16:25:19 / 修改时间：16:28:39" itemprop="dateCreated datePublished" datetime="2020-03-29T16:25:19+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
             </span>
 
           
@@ -199,19 +208,415 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+          <h2 id="一、-JSON是什么？"><a href="#一、-JSON是什么？" class="headerlink" title="一、 JSON是什么？"></a>一、 JSON是什么？</h2><ul>
+<li><p>JSON，全称“JavaScript Object Notation（JavaScript对象表示法）”，起源于JavaScript的对象和数组。JSON，说白了就是JavaScript用来处理数据的一种格式，这种格式非常简单易用。</p>
+</li>
+<li><p>JSON，大部分都是用来处理JavaScript和web服务器端之间的数据交换，把后台web服务器的数据传递到前台，然后使用JavaScript进行处理，例如ajax等。</p>
+</li>
+<li><p>JSON支持的语言非常多，包括JavaScript、C#、PHP、Java等等，这是由于JSON独立于语言的轻量级的数据交换格式，这个特点有点类似于SQL语言。</p>
+</li>
+<li><p>JSON，就是一种数据传输格式而已，无它，非常容易掌握。但是大家不要误以为JSON最大的用处是在前端，其实JSON最大的用处是处理JavaScript和web服务器端之间数据交换。</p>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">ECMAScript6 实用笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 16:19:30 / 修改时间：16:24:19" itemprop="dateCreated datePublished" datetime="2020-03-29T16:19:30+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p> 1、目前常用的版本是ECMAScript3.0，后来改了名字叫ECMAScript5</p>
+<blockquote>
+<p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。<br>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现</p>
+</blockquote>
+<p> 2、ECMAScript6的特点：</p>
+<blockquote>
+<ul>
+<li>ES6增添了许多必要的特性，例如模块和类，块级作用域，常量与变量</li>
+</ul>
+</blockquote>
+<p>3、浏览器的支持程度</p>
+<blockquote>
+<ul>
+<li><a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">http://kangax.github.io/compat-table/es6/</a></li>
+</ul>
+</blockquote>
+<p>4、可以通过Babel转码器把ES6写的代码转成ES5的，就不用担心运行环境是否支持<br>5、chrome下使用ES6为保证可以正常使用大部分语法，需要使用严格模式，即在js开始部分加上’use strict’<br>6、在firefox下使用ES6为保证可以正常使用大部分语法，需要知道测试版本，即在script标签的type属性中加上“application/javascript;version=1.7”属性值</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">js的闭包详解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 16:09:20 / 修改时间：16:15:30" itemprop="dateCreated datePublished" datetime="2020-03-29T16:09:20+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="js变量作用域"><a href="#js变量作用域" class="headerlink" title="js变量作用域"></a>js变量作用域</h2><p>js的变量作用域有两种，全局变量和局部变量</p>
+<p>需要注意的是，函数内部可以直接读取全局变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = <span class="number">666</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(global);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">//666</span></span><br></pre></td></tr></table></figure>
+<p>函数外部无法读取到函数内部的局部变量，因为函数在执行完之后，函数内部的环境就被销毁了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">js的面向对象详解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 16:04:20 / 修改时间：16:06:45" itemprop="dateCreated datePublished" datetime="2020-03-29T16:04:20+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="对象的创建："><a href="#对象的创建：" class="headerlink" title="对象的创建："></a>对象的创建：</h2><ul>
+<li>创建一个面向对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">obj.name = <span class="string">'haha'</span>;</span><br><span class="line">obj.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  alert(obj.name);</span><br><span class="line">&#125;</span><br><span class="line">obj.showName();</span><br></pre></td></tr></table></figure>
+缺点：当我们想创建多个面向对象的时候，重复代码过多，需要封装，所以有了工厂方法。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">小白要看的js事件委托指南</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 15:56:35 / 修改时间：15:59:03" itemprop="dateCreated datePublished" datetime="2020-03-29T15:56:35+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><p>那什么叫事件委托呢？它还有一个名字叫事件代理，JavaScript高级程序设计上讲：事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。那这是什么意思呢？网上的各位大牛们讲事件委托基本上都用了同一个例子，就是取快递来解释这个现象，我仔细揣摩了一下，这个例子还真是恰当，我就不去想别的例子来解释了，借花献佛，我摘过来，大家认真领会一下事件委托到底是一个什么原理：</p>
+<p>有三个同事预计会在周一收到快递。为签收快递，有两种办法：一是三个人在公司门口等快递；二是委托给前台MM代为签收。现实当中，我们大都采用委托的方案（公司也不会容忍那么多员工站在门口就为了等快递）。前台MM收到快递后，她会判断收件人是谁，然后按照收件人的要求签收，甚至代为付款。这种方案还有一个优势，那就是即使公司里来了新员工（不管多少），前台MM也会在收到寄给新员工的快递后核实并代为签收。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">html转图片小技巧</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 15:12:17 / 修改时间：15:55:32" itemprop="dateCreated datePublished" datetime="2020-03-29T15:12:17+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="keyword">var</span> wth = <span class="number">500</span>,</span><br><span class="line">	hgt = <span class="number">360</span>;</span><br><span class="line">canvas.width = wth;</span><br><span class="line">canvas.height = hgt;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(canvas);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"><span class="keyword">var</span> data = <span class="string">"&lt;svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'&gt;"</span> +</span><br><span class="line">             <span class="string">"&lt;foreignObject width='100%' height='100%'&gt;"</span> +</span><br><span class="line">               <span class="string">"&lt;div xmlns='http://www.w3.org/1999/xhtml' style='font-size:40px'&gt;"</span> +</span><br><span class="line">                  <span class="string">"&lt;em&gt;I&lt;/em&gt; like &lt;span style='color:white; text-shadow:0 0 2px blue;'&gt;cheese&lt;/span&gt;"</span> +</span><br><span class="line">               <span class="string">"&lt;/div&gt;"</span> +</span><br><span class="line">             <span class="string">"&lt;/foreignObject&gt;"</span> +</span><br><span class="line">           <span class="string">"&lt;/svg&gt;"</span>;</span><br><span class="line">ctx.fillStyle = <span class="string">'#ddd'</span>;</span><br><span class="line">ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, wth, hgt);</span><br><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line"><span class="keyword">var</span> svg = <span class="keyword">new</span> Blob([data], &#123;<span class="attr">type</span>: <span class="string">"image/svg+xml;charset=utf-8"</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">window</span>.URL.createObjectURL(svg);</span><br><span class="line">img.crossOrigin = <span class="string">'anonymous'</span>;</span><br><span class="line">img.src = url;</span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.URL.revokeObjectURL(url);</span><br><span class="line">    ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">window</span>.open(canvas.toDataURL(<span class="string">'image/jpeg'</span>, <span class="number">0.75</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>核心代码是while循环部分，实际上就是一个递归调用，你也可以写成一个函数，用递归的方法来调用，同时用到冒泡的原理，从里往外冒泡，知道currentTarget为止，当当前的target是li的时候，就可以执行对应的事件了，然后终止循环</p>
 
       
     </div>
@@ -231,7 +636,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -245,7 +650,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">FileReader使用指南</a>
         </h1>
 
         <div class="post-meta">
@@ -256,7 +661,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-29 11:37:19 / 修改时间：13:44:28" itemprop="dateCreated datePublished" datetime="2020-03-29T11:37:19+08:00">2020-03-29</time>
+              <time title="创建时间：2020-03-29 15:06:30 / 修改时间：15:10:05" itemprop="dateCreated datePublished" datetime="2020-03-29T15:06:30+08:00">2020-03-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +669,269 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h2><p>FileReader用来把文件读入内存，并且读取文件中的数据。其接口提供了一个异步API，使用该API可以在浏览器主线程中异步访问文件系统，读取文件中的数据。到目前文职，只有FF3.6+和Chrome6.0+实现了FileReader接口。</p>
+<p><strong>接口方法:</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>readAsText</td>
+<td>file</td>
+<td>将文件读取为文本</td>
+</tr>
+<tr>
+<td>readAsDataURL</td>
+<td>file</td>
+<td>将文件读取为DataURL</td>
+</tr>
+<tr>
+<td>readAsBinaryString</td>
+<td>file</td>
+<td>将文件读取为二进制编码</td>
+</tr>
+<tr>
+<td>readAsArrayBuffer</td>
+<td>file</td>
+<td>将文件读取为ArrayBuffer</td>
+</tr>
+<tr>
+<td>abort</td>
+<td>none</td>
+<td>终止读取操作</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">js 常用事件大全</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 14:55:41 / 修改时间：16:01:31" itemprop="dateCreated datePublished" datetime="2020-03-29T14:55:41+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>js 常用事件大全</p>
+<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">click 当用户点击某个对象时调用的事件句柄。 </span><br><span class="line">contextmenu 在用户点击鼠标右键打开上下文菜单时触发 </span><br><span class="line">dblclick 当用户双击某个对象时调用的事件句柄。 </span><br><span class="line">mousedown 鼠标按钮被按下。 </span><br><span class="line">mouseenter 当鼠标指针移动到元素上时触发。 </span><br><span class="line">mouseleave 当鼠标指针移出元素时触发 </span><br><span class="line">mousemove 鼠标被移动。 </span><br><span class="line">mouseover 鼠标移到某元素之上。 </span><br><span class="line">mouseout 鼠标从某元素移开。 </span><br><span class="line">mouseup 鼠标按键被松开。</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">HTML&CSS入门</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 14:42:59 / 修改时间：16:00:09" itemprop="dateCreated datePublished" datetime="2020-03-29T14:42:59+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>HTML&amp;CSS基础入门总结</p>
+<h2 id="一、使用-css-控制页面样式的方式"><a href="#一、使用-css-控制页面样式的方式" class="headerlink" title="一、使用 css 控制页面样式的方式"></a>一、使用 css 控制页面样式的方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//行内样式</span></span><br><span class="line">&lt;div style=<span class="string">"属性1:值1;属性2:值2;"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/嵌入样式</span></span><br><span class="line"><span class="regexp">&lt;style type="text/</span>css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">选择器&#123;属性1:值1;属性2:值2;&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br><span class="line"><span class="string">//外部样式</span></span><br><span class="line"><span class="string">&lt;link rel="</span>stylesheet<span class="string">" type="</span>text/css<span class="string">" href="</span>url<span class="string">"&gt;</span></span><br><span class="line"><span class="string">//导入样式</span></span><br><span class="line"><span class="string">import url(外部样式表位置)；</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/hello-myblog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/hello-myblog/" class="post-title-link" itemprop="url">Hello World</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-29 11:37:19 / 修改时间：16:00:44" itemprop="dateCreated datePublished" datetime="2020-03-29T11:37:19+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
             </span>
 
@@ -366,6 +1033,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="king"
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">king</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -374,7 +1043,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -387,7 +1056,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
