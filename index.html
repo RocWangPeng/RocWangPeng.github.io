@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -101,6 +101,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -134,9 +135,34 @@
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -160,10 +186,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/%E4%BD%BF%E7%94%A8nodeJS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E5%8A%9F%E8%83%BD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -174,7 +200,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/" class="post-title-link" itemprop="url">Json最强攻略</a>
+            <a href="/2020/04/02/%E4%BD%BF%E7%94%A8nodeJS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">使用nodeJS+cheerio实现一个简单的网页爬虫功能</a>
         </h1>
 
         <div class="post-meta">
@@ -183,9 +209,162 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-29 16:25:19 / 修改时间：16:28:39" itemprop="dateCreated datePublished" datetime="2020-03-29T16:25:19+08:00">2020-03-29</time>
+              <time title="创建时间：2020-04-02 18:36:15" itemprop="dateCreated datePublished" datetime="2020-04-02T18:36:15+08:00">2020-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文将使用nodeJS+cheerio实现一个简单的网页爬虫功能</p>
+<h2 id="网页源码"><a href="#网页源码" class="headerlink" title="网页源码"></a>网页源码</h2><p>使用http.get()方法获取网页源码，以hao123网站的头条页面为例<br><code>http://tuijian.hao123.com/hotrank</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.get(<span class="string">'http://tuijian.hao123.com/hotrank'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = <span class="string">''</span>;</span><br><span class="line">    res.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</span><br><span class="line">        data += chunk;</span><br><span class="line">    &#125;);</span><br><span class="line">    res.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/02/%E4%BD%BF%E7%94%A8nodeJS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E7%88%AC%E8%99%AB%E5%8A%9F%E8%83%BD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/nodejs%E4%B9%8Bfs%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/02/nodejs%E4%B9%8Bfs%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">nodejs之fs模块</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-02 17:52:42" itemprop="dateCreated datePublished" datetime="2020-04-02T17:52:42+08:00">2020-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><strong>fs文件系统用于对系统文件及目录进行读写操作</strong></p>
+</blockquote>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><h4 id="普通读取"><a href="#普通读取" class="headerlink" title="普通读取"></a>普通读取</h4><p>同步读取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    data = fs.readFileSync(<span class="string">'./fileForRead.txt'</span>, <span class="string">'utf8'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'文件内容: '</span> + data);</span><br><span class="line">&#125;<span class="keyword">catch</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'读取文件出错: '</span> + err.message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/02/nodejs%E4%B9%8Bfs%E6%A8%A1%E5%9D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/30/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/" class="post-title-link" itemprop="url">Json最强攻略</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-30 16:25:19" itemprop="dateCreated datePublished" datetime="2020-03-30T16:25:19+08:00">2020-03-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +399,162 @@
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/29/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/#more" rel="contents">
+              <a class="btn" href="/2020/03/30/Json%E6%9C%80%E5%BC%BA%E6%94%BB%E7%95%A5/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">npm入门使用指南</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 17:26:26" itemprop="dateCreated datePublished" datetime="2020-03-29T17:26:26+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+<p>由于新版的nodejs已经集成了npm，所以之前npm也一并安装好了。同样可以通过输入 “npm -v” 来测试是否成功安装。命令如下，出现版本提示表示安装成功:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line"><span class="number">5.5</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">nodeJs入门系列</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 17:12:23" itemprop="dateCreated datePublished" datetime="2020-03-29T17:12:23+08:00">2020-03-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="01-介绍-安装"><a href="#01-介绍-安装" class="headerlink" title="01 介绍/安装/"></a>01 介绍/安装/</h2><h3 id="node-js-介绍"><a href="#node-js-介绍" class="headerlink" title="node.js 介绍"></a><strong>node.js 介绍</strong></h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。<br>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。<br>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -247,7 +581,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -267,9 +601,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-29 16:19:30 / 修改时间：16:24:19" itemprop="dateCreated datePublished" datetime="2020-03-29T16:19:30+08:00">2020-03-29</time>
+              <time title="创建时间：2020-03-29 16:19:30" itemprop="dateCreated datePublished" datetime="2020-03-29T16:19:30+08:00">2020-03-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -338,7 +671,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -416,7 +749,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -491,10 +824,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -505,7 +838,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">小白要看的js事件委托指南</a>
+            <a href="/2017/03/10/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">小白要看的js事件委托指南</a>
         </h1>
 
         <div class="post-meta">
@@ -514,9 +847,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-29 15:56:35 / 修改时间：15:59:03" itemprop="dateCreated datePublished" datetime="2020-03-29T15:56:35+08:00">2020-03-29</time>
+              <time title="创建时间：2017-03-10 14:42:59" itemprop="dateCreated datePublished" datetime="2017-03-10T14:42:59+08:00">2017-03-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -543,7 +875,7 @@
 <p>有三个同事预计会在周一收到快递。为签收快递，有两种办法：一是三个人在公司门口等快递；二是委托给前台MM代为签收。现实当中，我们大都采用委托的方案（公司也不会容忍那么多员工站在门口就为了等快递）。前台MM收到快递后，她会判断收件人是谁，然后按照收件人的要求签收，甚至代为付款。这种方案还有一个优势，那就是即使公司里来了新员工（不管多少），前台MM也会在收到寄给新员工的快递后核实并代为签收。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/29/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/#more" rel="contents">
+              <a class="btn" href="/2017/03/10/%E5%B0%8F%E7%99%BD%E8%A6%81%E7%9C%8B%E7%9A%84js%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E6%8C%87%E5%8D%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -567,10 +899,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/tx.jpg">
       <meta itemprop="name" content="king">
       <meta itemprop="description" content="">
     </span>
@@ -581,7 +913,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/29/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">html转图片小技巧</a>
+            <a href="/2017/02/14/html%E8%BD%AC%E5%9B%BE%E7%89%87%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">html转图片小技巧</a>
         </h1>
 
         <div class="post-meta">
@@ -590,9 +922,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-29 15:12:17 / 修改时间：15:55:32" itemprop="dateCreated datePublished" datetime="2020-03-29T15:12:17+08:00">2020-03-29</time>
+              <time title="创建时间：2017-02-14 14:42:59" itemprop="dateCreated datePublished" datetime="2017-02-14T14:42:59+08:00">2017-02-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -632,351 +963,12 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">FileReader使用指南</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-29 15:06:30 / 修改时间：15:10:05" itemprop="dateCreated datePublished" datetime="2020-03-29T15:06:30+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h2><p>FileReader用来把文件读入内存，并且读取文件中的数据。其接口提供了一个异步API，使用该API可以在浏览器主线程中异步访问文件系统，读取文件中的数据。到目前文职，只有FF3.6+和Chrome6.0+实现了FileReader接口。</p>
-<p><strong>接口方法:</strong></p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>readAsText</td>
-<td>file</td>
-<td>将文件读取为文本</td>
-</tr>
-<tr>
-<td>readAsDataURL</td>
-<td>file</td>
-<td>将文件读取为DataURL</td>
-</tr>
-<tr>
-<td>readAsBinaryString</td>
-<td>file</td>
-<td>将文件读取为二进制编码</td>
-</tr>
-<tr>
-<td>readAsArrayBuffer</td>
-<td>file</td>
-<td>将文件读取为ArrayBuffer</td>
-</tr>
-<tr>
-<td>abort</td>
-<td>none</td>
-<td>终止读取操作</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/FileReader%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">js 常用事件大全</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-29 14:55:41 / 修改时间：16:01:31" itemprop="dateCreated datePublished" datetime="2020-03-29T14:55:41+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>js 常用事件大全</p>
-<h2 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">click 当用户点击某个对象时调用的事件句柄。 </span><br><span class="line">contextmenu 在用户点击鼠标右键打开上下文菜单时触发 </span><br><span class="line">dblclick 当用户双击某个对象时调用的事件句柄。 </span><br><span class="line">mousedown 鼠标按钮被按下。 </span><br><span class="line">mouseenter 当鼠标指针移动到元素上时触发。 </span><br><span class="line">mouseleave 当鼠标指针移出元素时触发 </span><br><span class="line">mousemove 鼠标被移动。 </span><br><span class="line">mouseover 鼠标移到某元素之上。 </span><br><span class="line">mouseout 鼠标从某元素移开。 </span><br><span class="line">mouseup 鼠标按键被松开。</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/js-%E5%B8%B8%E7%94%A8%E4%BA%8B%E4%BB%B6%E5%A4%A7%E5%85%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">HTML&CSS入门</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-29 14:42:59 / 修改时间：16:00:09" itemprop="dateCreated datePublished" datetime="2020-03-29T14:42:59+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>HTML&amp;CSS基础入门总结</p>
-<h2 id="一、使用-css-控制页面样式的方式"><a href="#一、使用-css-控制页面样式的方式" class="headerlink" title="一、使用 css 控制页面样式的方式"></a>一、使用 css 控制页面样式的方式</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//行内样式</span></span><br><span class="line">&lt;div style=<span class="string">"属性1:值1;属性2:值2;"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/嵌入样式</span></span><br><span class="line"><span class="regexp">&lt;style type="text/</span>css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">选择器&#123;属性1:值1;属性2:值2;&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br><span class="line"><span class="string">//外部样式</span></span><br><span class="line"><span class="string">&lt;link rel="</span>stylesheet<span class="string">" type="</span>text/css<span class="string">" href="</span>url<span class="string">"&gt;</span></span><br><span class="line"><span class="string">//导入样式</span></span><br><span class="line"><span class="string">import url(外部样式表位置)；</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/HTML-CSS%E5%85%A5%E9%97%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/hello-myblog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/hello-myblog/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-29 11:37:19 / 修改时间：16:00:44" itemprop="dateCreated datePublished" datetime="2020-03-29T11:37:19+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1034,7 +1026,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="king"
-      src="/images/avatar.gif">
+      src="/images/tx.jpg">
   <p class="site-author-name" itemprop="name">king</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -1043,24 +1035,32 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/RocWangPeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;RocWangPeng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:383557980@qq.com" title="E-Mail → mailto:383557980@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -1124,6 +1124,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -1139,5 +1143,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>
