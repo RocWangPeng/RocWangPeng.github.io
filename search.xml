@@ -12,7 +12,7 @@
 <li>Remote：远程仓库</li>
 </ul>
 <h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在当前目录新建一个Git代码库</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init [project-name]</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载一个项目和它的整个代码历史</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> [url]</span></span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示当前的Git配置</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --list</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编辑Git配置文件</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config -e [--global]</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置提交代码时的用户信息</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config [--global] user.name <span class="string">"[name]"</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config [--global] user.email <span class="string">"[email address]"</span></span></span><br></pre></td></tr></table></figure>
 
@@ -48,11 +48,11 @@
 <li>检查目录列表以查看是否已经有 SSH 公钥。 默认情况下，公钥的文件名是以下之一：<ul>
 <li>id_rsa.pub</li>
 <li>id_ecdsa.pub</li>
-<li>id_ed25519.pub</li>
+<li>id_ed25519.pub<a id="more"></a>
+<h2 id="生成新-SSH-密钥"><a href="#生成新-SSH-密钥" class="headerlink" title="生成新 SSH 密钥"></a>生成新 SSH 密钥</h2>检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证<br>如果您还没有 SSH 密钥，则必须生成新 SSH 密钥。 如果您不确定是否已有 SSH 密钥，请检查现有密钥。</li>
 </ul>
 </li>
 </ul>
-<h2 id="生成新-SSH-密钥"><a href="#生成新-SSH-密钥" class="headerlink" title="生成新 SSH 密钥"></a>生成新 SSH 密钥</h2><p>检查现有 SSH 密钥后，您可以生成新 SSH 密钥以用于身份验证<br>如果您还没有 SSH 密钥，则必须生成新 SSH 密钥。 如果您不确定是否已有 SSH 密钥，请检查现有密钥。</p>
 <p><strong>生成新 SSH 密钥</strong></p>
 <ul>
 <li>打开 Git Bash或者其它终端命令行工具。</li>
