@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/axios-%E5%A4%A7%E4%BC%97%E7%89%88%E5%B0%81%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-10%E5%88%87%E6%8D%A2%E6%B5%8F%E8%A7%88%E5%99%A8tab%E9%A1%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/tx.jpg">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/30/axios-%E5%A4%A7%E4%BC%97%E7%89%88%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">axios-大众版封装</a>
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-10%E5%88%87%E6%8D%A2%E6%B5%8F%E8%A7%88%E5%99%A8tab%E9%A1%B5/" class="post-title-link" itemprop="url">puppeteer系列教程-10切换浏览器tab页</a>
         </h1>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-03-30 16:10:27" itemprop="dateCreated datePublished" datetime="2020-03-30T16:10:27+08:00">2020-03-30</time>
+              <time title="创建时间：2020-04-03 14:06:22" itemprop="dateCreated datePublished" datetime="2020-04-03T14:06:22+08:00">2020-04-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,11 +218,768 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>689</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="切换浏览器tab页"><a href="#切换浏览器tab页" class="headerlink" title="切换浏览器tab页"></a>切换浏览器tab页</h2><p><code>browser.waitForTarget</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">switchWindows</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'http://news.baidu.com/'</span>,&#123;<span class="attr">waitUntil</span>:<span class="string">'networkidle2'</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> link = <span class="keyword">await</span> page.waitForSelector(<span class="string">'li.hdline0&gt; strong'</span>)</span><br><span class="line">    <span class="keyword">await</span> link.click();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> target= <span class="keyword">await</span> browser.waitForTarget(<span class="function"><span class="params">target</span>=&gt;</span>target.url().includes(<span class="string">'cpc.people.com.cn'</span>));</span><br><span class="line">    <span class="keyword">const</span> newpage = <span class="keyword">await</span> target.page();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> newpage.waitForSelector(<span class="string">'div.text_con.text_con01'</span>);</span><br><span class="line">    <span class="keyword">const</span> innerText = <span class="keyword">await</span> newpage.$<span class="built_in">eval</span>(<span class="string">'div.text_con.text_con01'</span>,ele=&gt;ele.innerText);</span><br><span class="line">    <span class="built_in">console</span>.log(innerText);</span><br><span class="line">&#125;</span><br><span class="line">switchWindows();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-09%E6%A8%A1%E6%8B%9F%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-09%E6%A8%A1%E6%8B%9F%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">puppeteer系列教程-09模拟快捷键操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 14:05:41" itemprop="dateCreated datePublished" datetime="2020-04-03T14:05:41+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="模拟快捷键"><a href="#模拟快捷键" class="headerlink" title="模拟快捷键"></a>模拟快捷键</h2><p>使用api <code>page.keyborder</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;</span><br><span class="line">        headless:<span class="literal">false</span>,</span><br><span class="line">        defaultViewport:&#123;<span class="attr">width</span>:<span class="number">1200</span>,<span class="attr">height</span>:<span class="number">700</span>&#125;, </span><br><span class="line">        ignoreDefaultArgs:[<span class="string">'--enable-automation'</span>],</span><br><span class="line">        slowMo:<span class="number">200</span>,</span><br><span class="line">        args:[<span class="string">'--window-size=1200,700'</span>]&#125;)</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'http://39.107.96.138:3000/signin'</span>,&#123;<span class="attr">waitUntil</span>:<span class="string">'networkidle2'</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> username = <span class="keyword">await</span> page.waitForSelector(<span class="string">'#name'</span>);</span><br><span class="line">    <span class="keyword">await</span> username.click();</span><br><span class="line">    <span class="keyword">await</span> username.type(<span class="string">'user1'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> passwd = <span class="keyword">await</span> page.waitForSelector(<span class="string">'#pass'</span>);</span><br><span class="line">    <span class="keyword">await</span> passwd.click();</span><br><span class="line">    <span class="keyword">await</span> passwd.type(<span class="string">'123456'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> loginBtn = <span class="keyword">await</span> page.waitForSelector(<span class="string">'.span-primary'</span>);</span><br><span class="line">    <span class="keyword">await</span> loginBtn.click();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> createTopicBtn = <span class="keyword">await</span> page.waitForSelector(<span class="string">'#create_topic_btn'</span>);</span><br><span class="line">    <span class="keyword">await</span> createTopicBtn.click();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> inputTopic = <span class="keyword">await</span> page.waitForSelector(<span class="string">'.CodeMirror-code'</span>);</span><br><span class="line">    <span class="keyword">await</span> inputTopic.click();</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.type(<span class="string">'helloworld'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ctrl + a</span></span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'Control'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'a'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.up(<span class="string">'a'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'Control'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'Control'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'b'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.up(<span class="string">'b'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.down(<span class="string">'Control'</span>);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-08%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83%E5%BE%AE%E5%8D%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-08%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83%E5%BE%AE%E5%8D%9A/" class="post-title-link" itemprop="url">puppeteer系列教程-08自动化发布微博</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 13:06:03" itemprop="dateCreated datePublished" datetime="2020-04-03T13:06:03+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="自动化发布微博"><a href="#自动化发布微博" class="headerlink" title="自动化发布微博"></a>自动化发布微博</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;username,password&#125; = <span class="built_in">require</span>(<span class="string">'./config'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;</span><br><span class="line">        headless:<span class="literal">false</span>,</span><br><span class="line">        defaultViewport:&#123;<span class="attr">width</span>:<span class="number">1200</span>,<span class="attr">height</span>:<span class="number">700</span>&#125;, </span><br><span class="line">        ignoreDefaultArgs:[<span class="string">'--enable-automation'</span>],</span><br><span class="line">        slowMo:<span class="number">200</span>,</span><br><span class="line">        args:[<span class="string">'--window-size=1200,700'</span>]&#125;)</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'http://wufazhuce.com/'</span>,&#123;<span class="attr">waitUntil</span>:<span class="string">'networkidle2'</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> OneText = <span class="keyword">await</span> page.$<span class="built_in">eval</span>(<span class="string">'div.fp-one-cita &gt; a'</span>,ele=&gt;ele.innerText);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'OneText:'</span>,OneText);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://weibo.com/'</span>,&#123;<span class="attr">waitUntil</span>:<span class="string">'networkidle2'</span>&#125;);</span><br><span class="line">    <span class="keyword">await</span> page.waitFor(<span class="number">2</span>*<span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">await</span> page.reload();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> loginUserInput = <span class="keyword">await</span> page.waitForSelector(<span class="string">'input#loginname'</span>);</span><br><span class="line">    <span class="keyword">await</span> loginUserInput.click();</span><br><span class="line">    <span class="keyword">await</span> loginUserInput.type(username);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> loginUserPasswdInput = <span class="keyword">await</span> page.waitForSelector(<span class="string">'input[type="password"]'</span>);</span><br><span class="line">    <span class="keyword">await</span> loginUserPasswdInput.click();</span><br><span class="line">    <span class="keyword">await</span> loginUserPasswdInput.type(password);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> loginBtn = <span class="keyword">await</span> page.waitForSelector(<span class="string">'a[action-type="btn_submit"]'</span>)</span><br><span class="line">    <span class="keyword">await</span> loginBtn.click();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> textarea = <span class="keyword">await</span> page.waitForSelector(<span class="string">'textarea[class="W_input"]'</span>)</span><br><span class="line">    <span class="keyword">await</span> textarea.click();</span><br><span class="line">    <span class="keyword">await</span> textarea.type(OneText);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> sendBtn = <span class="keyword">await</span> page.waitForSelector(<span class="string">'a[node-type="submit"]'</span>);</span><br><span class="line">    <span class="keyword">await</span> sendBtn.click();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-07%E6%8B%96%E6%8B%BD%E9%AA%8C%E8%AF%81%E7%A0%81%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-07%E6%8B%96%E6%8B%BD%E9%AA%8C%E8%AF%81%E7%A0%81%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">puppeteer系列教程-07拖拽验证码操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 13:03:24" itemprop="dateCreated datePublished" datetime="2020-04-03T13:03:24+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="拖拽操作"><a href="#拖拽操作" class="headerlink" title="拖拽操作"></a>拖拽操作</h2><p>使用 api <code>mouse</code></p>
+<p>自动化操作阿里云注册页面的验证码部分<br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200403130504.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">aliyun</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>,<span class="attr">ignoreDefaultArgs</span>:[<span class="string">'--enable-automation'</span>]&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://account.aliyun.com/register/register.htm'</span>,&#123;<span class="attr">waitUntil</span>:<span class="string">"networkidle2"</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> frame = <span class="keyword">await</span> page.frames().find(<span class="function"><span class="params">frame</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(frame.url())</span><br><span class="line">        <span class="keyword">return</span> frame.url().includes(<span class="string">'https://passport.aliyun.com/member/reg/fast/fast_reg.htm'</span>)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> span = <span class="keyword">await</span> frame.waitForSelector(<span class="string">'#nc_1_n1z'</span>);</span><br><span class="line">    <span class="keyword">const</span> spaninfo = <span class="keyword">await</span> span.boundingBox();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'spaninfo'</span>,spaninfo)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">await</span> page.mouse.move(spaninfo.x,spaninfo.y);</span><br><span class="line">    <span class="keyword">await</span> page.mouse.down();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> div = <span class="keyword">await</span> frame.waitForSelector(<span class="string">'div#nc_1__scale_text &gt; span.nc-lang-cnt'</span>);</span><br><span class="line">    <span class="keyword">const</span> divinfo = <span class="keyword">await</span> div.boundingBox();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'divinfo'</span>,divinfo)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;divinfo.width;i++)&#123;</span><br><span class="line">        <span class="keyword">await</span> page.mouse.move(spaninfo.x+i,spaninfo.y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> page.mouse.up();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">aliyun();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-06%E5%88%87%E6%8D%A2frame%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%B1%85%E5%AE%A2%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-06%E5%88%87%E6%8D%A2frame%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%B1%85%E5%AE%A2%E7%99%BB%E9%99%86%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">puppeteer系列教程-06切换frame进行安居客登陆操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 13:02:03" itemprop="dateCreated datePublished" datetime="2020-04-03T13:02:03+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>587</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="切换frame"><a href="#切换frame" class="headerlink" title="切换frame"></a>切换frame</h2><p>使用api  <code>page.frames()</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">anjuke</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://login.anjuke.com/login/form'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 切换iframe</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.frames().map(<span class="function"><span class="params">frame</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(frame.url())&#125;)</span><br><span class="line">    <span class="keyword">const</span> targetFrameUrl = <span class="string">'https://login.anjuke.com/login/iframeform'</span></span><br><span class="line">    <span class="keyword">const</span> frame =  <span class="keyword">await</span> page.frames().find(<span class="function"><span class="params">frame</span> =&gt;</span> frame.url().includes(targetFrameUrl));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> phone= <span class="keyword">await</span> frame.waitForSelector(<span class="string">'#phoneIpt'</span>)</span><br><span class="line">    <span class="keyword">await</span> phone.type(<span class="string">"13411112222"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">anjuke();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-05%E5%A4%84%E7%90%86%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-05%E5%A4%84%E7%90%86%E5%A4%9A%E4%B8%AA%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">puppeteer系列教程-05处理多个元素</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 13:00:13" itemprop="dateCreated datePublished" datetime="2020-04-03T13:00:13+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>503</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="多个元素处理"><a href="#多个元素处理" class="headerlink" title="多个元素处理"></a>多个元素处理</h2><ul>
+<li>$$()</li>
+<li>$$eval()<br>代码片段<br>京东手机列表<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">jd</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://www.jd.com'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> input = <span class="keyword">await</span> page.$(<span class="string">'#key'</span>)</span><br><span class="line">    <span class="keyword">await</span> input.type(<span class="string">'手机'</span>);</span><br><span class="line">    <span class="keyword">await</span> page.keyboard.press(<span class="string">'Enter'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.waitForSelector(<span class="string">'ul.gl-warp&gt;li'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> list = <span class="keyword">await</span> page.$$<span class="built_in">eval</span>(<span class="string">'ul.gl-warp&gt;li'</span>,eles=&gt;eles.map(<span class="function"><span class="params">ele</span>=&gt;</span>ele.innerText))</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'List =='</span>,list);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jd();</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/pupputeer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-04%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/pupputeer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-04%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">pupputeer系列教程-04文件上传</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 12:57:59" itemprop="dateCreated datePublished" datetime="2020-04-03T12:57:59+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>459</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">upload</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://www.baidu.com'</span>);</span><br><span class="line">    <span class="keyword">const</span> soutuBtn = <span class="keyword">await</span> page.waitForSelector(<span class="string">'span.soutu-btn'</span>);</span><br><span class="line">    <span class="keyword">await</span> soutuBtn.click();</span><br><span class="line">    <span class="keyword">const</span> uploadPic = <span class="keyword">await</span> page.waitForSelector(<span class="string">'input.upload-pic'</span>)</span><br><span class="line">    <span class="keyword">await</span> uploadPic.uploadFile(<span class="string">'C:\\Users\\zyzhao\\Documents\\puppeteer_teach\\puppeteer.png'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">upload();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-03%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-03%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E5%80%BC/" class="post-title-link" itemprop="url">puppeteer系列教程-03获取文本值</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 12:55:29" itemprop="dateCreated datePublished" datetime="2020-04-03T12:55:29+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>699</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="获取文本值"><a href="#获取文本值" class="headerlink" title="获取文本值"></a>获取文本值</h2><p>$eval(selector,pagefunction)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>,<span class="attr">defaultViewport</span>:&#123;<span class="attr">width</span>:<span class="number">1366</span>,<span class="attr">height</span>:<span class="number">768</span>&#125;&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://www.baidu.com'</span>);</span><br><span class="line">    <span class="keyword">const</span> input_area = <span class="keyword">await</span> page.$(<span class="string">"#kw"</span>);</span><br><span class="line">    <span class="keyword">await</span> input_area.type(<span class="string">"Hello Wrold"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> search_btn = <span class="keyword">await</span> page.$(<span class="string">'#su'</span>);</span><br><span class="line">    <span class="keyword">await</span> search_btn.click();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.waitFor(<span class="string">'div#content_left &gt; div.result-op.c-container.xpath-log'</span>,&#123;<span class="attr">visible</span>:<span class="literal">true</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> resultText = <span class="keyword">await</span> page.$<span class="built_in">eval</span>(<span class="string">'div#content_left &gt; div.result-op.c-container.xpath-log'</span>,ele=&gt; ele.innerText)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"result Text= "</span>,resultText);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run();</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-02%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E4%BB%A5%E5%8F%8A%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-02%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96%E4%BB%A5%E5%8F%8A%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">puppeteer系列教程-02元素获取以及操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 12:50:54" itemprop="dateCreated datePublished" datetime="2020-04-03T12:50:54+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>749</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h2><p>使用 $ 方法获取，输入元素的css selector定位元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取页面中的id为kw的dom元素</span></span><br><span class="line"><span class="keyword">const</span> input_area = <span class="keyword">await</span> page.$(<span class="string">"#kw"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作-输入点击"><a href="#操作-输入点击" class="headerlink" title="操作-输入点击"></a>操作-输入点击</h2><ul>
+<li>type 输入文本</li>
+<li>click 元素点击<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// puppeteer.launch(&#123;headless:false,defaultViewport:&#123;width:1366,height:768&#125;&#125;).then((browser)=&gt;&#123;</span></span><br><span class="line"><span class="comment">//     browser.newPage().then(page=&gt;&#123;</span></span><br><span class="line"><span class="comment">//         page.goto('https://www.baidu.com')</span></span><br><span class="line"><span class="comment">//     &#125;)</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;<span class="attr">headless</span>:<span class="literal">false</span>,<span class="attr">defaultViewport</span>:&#123;<span class="attr">width</span>:<span class="number">1366</span>,<span class="attr">height</span>:<span class="number">768</span>&#125;&#125;);</span><br><span class="line">    <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">    <span class="keyword">await</span> page.goto(<span class="string">'https://www.baidu.com'</span>);</span><br><span class="line">    <span class="keyword">const</span> input_area = <span class="keyword">await</span> page.$(<span class="string">"#kw"</span>);</span><br><span class="line">    <span class="keyword">await</span> input_area.type(<span class="string">"Hello Wrold"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> search_btn = <span class="keyword">await</span> page.$(<span class="string">'#su'</span>);</span><br><span class="line">    <span class="keyword">await</span> search_btn.click();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run();</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-01puppeteer%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/tx.jpg">
+      <meta itemprop="name" content="king">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记忆的时间差">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-01puppeteer%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">puppeteer系列教程-Puppeteer 初探</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-03 12:44:33" itemprop="dateCreated datePublished" datetime="2020-04-03T12:44:33+08:00">2020-04-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/puppeteer/" itemprop="url" rel="index"><span itemprop="name">puppeteer</span></a>
                 </span>
             </span>
 
@@ -249,836 +1006,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>直接上代码吧，比较简单</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'router/index'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; TIMEOUT &#125; <span class="keyword">from</span> <span class="string">'helpers/config'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; getToken &#125; <span class="keyword">from</span> <span class="string">'../helpers/cache'</span>;</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'querystring'</span>;</span><br><span class="line"><span class="keyword">import</span> Message <span class="keyword">from</span> <span class="string">'components/dc-message/index'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置一</span></span><br><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  baseURL: process.env.VUE_APP_URL,</span><br><span class="line">  timeout: TIMEOUT,</span><br><span class="line">  withCredentials: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置请求头</span></span><br><span class="line">service.defaults.headers = &#123;</span><br><span class="line">  post: &#123;</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json;charset=utf-8'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求拦截</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  config =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> token = getToken();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (token) &#123;</span><br><span class="line">      config.headers.Authorization = <span class="string">`Bearer <span class="subst">$&#123;token.access_token&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/^application\/x-www-form-urlencoded/</span>.test(config.headers[<span class="string">'Content-Type'</span>])) &#123;</span><br><span class="line">      config.data = qs.stringify(config.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> config;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.error(error.data);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应拦截</span></span><br><span class="line">service.interceptors.response.use(</span><br><span class="line">  res =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (res.status === <span class="number">200</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(res.data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(res.data);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  error =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">    <span class="keyword">if</span> (error.response.data &amp;&amp; error.response.data.status === <span class="number">401</span>) &#123;</span><br><span class="line">      router.replace(&#123;</span><br><span class="line">        path: <span class="string">'/login'</span>,</span><br><span class="line">        query: &#123;</span><br><span class="line">          redirect: router.currentRoute.fullPath</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Message(<span class="string">`<span class="subst">$&#123;error.response.status&#125;</span>: <span class="subst">$&#123;error.response.data.message ? error.response.data.message : error.response.data.error_description&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error.response);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> service;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/30/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/" class="post-title-link" itemprop="url">从零搭建React项目全家桶</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-30 13:15:11" itemprop="dateCreated datePublished" datetime="2020-03-30T13:15:11+08:00">2020-03-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>17k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>16 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>React是近几年来前端项目开发非常火的一个框架，其背景是Facebook团队的技术支持，市场占有率也很高。很多初学者纠结一开始是学react还是vue。个人觉得，有时间的话，最好两个都掌握一下。从学习难度上来说，react要比vue稍难一些。万事开头难，但是掌握了react对于大幅提高前端技能还是非常有帮助的。本文一步步详细梳理了从创建react、精简项目、集成插件、初步优化等过程。对于react开发者来说，能够节省很多探索的时间。下面请跟着我来一步步操作。</p>
+          <h2 id="Puppeteer是什么？"><a href="#Puppeteer是什么？" class="headerlink" title="Puppeteer是什么？"></a>Puppeteer是什么？</h2><p>Puppeteer是一个Node库，它提供了一个高级API来通过DevTools协议控制无头 Chrome或Chromium ，它也可以配置为使用完整（非无头）Chrome或Chromium。</p>
+<p>你可以通过Puppeteer的提供的api直接控制Chrome模拟大部分用户操作来进行UI Test或者作为爬虫访问页面来收集数据。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/30/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E5%85%A8%E5%AE%B6%E6%A1%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/reactjs%E4%B8%AD%E4%BD%BF%E7%94%A8css%E7%9A%84%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/reactjs%E4%B8%AD%E4%BD%BF%E7%94%A8css%E7%9A%84%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">reactjs中使用css的方式</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 23:06:52" itemprop="dateCreated datePublished" datetime="2020-03-29T23:06:52+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>由于 React的JSX语法，能在React中使用样式的方式有很多，本文主要介绍在React中经常使用CSS样式的五种方法：</p>
-<ul>
-<li>1、行内样式</li>
-<li>2、声明样式</li>
-<li>3、引入样式</li>
-<li>4、CSS Modules模块化</li>
-<li>5、Styled-component
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/reactjs%E4%B8%AD%E4%BD%BF%E7%94%A8css%E7%9A%84%E6%96%B9%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">npm入门使用指南</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 17:26:26" itemprop="dateCreated datePublished" datetime="2020-03-29T17:26:26+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>4.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
-<ul>
-<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
-<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
-<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
-</ul>
-<p>由于新版的nodejs已经集成了npm，所以之前npm也一并安装好了。同样可以通过输入 “npm -v” 来测试是否成功安装。命令如下，出现版本提示表示安装成功:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line"><span class="number">5.5</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/npm%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">nodeJs入门系列</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 17:12:23" itemprop="dateCreated datePublished" datetime="2020-03-29T17:12:23+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nodejs/" itemprop="url" rel="index"><span itemprop="name">nodejs</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>65k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>59 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="01-介绍-安装"><a href="#01-介绍-安装" class="headerlink" title="01 介绍/安装/"></a>01 介绍/安装/</h2><h3 id="node-js-介绍"><a href="#node-js-介绍" class="headerlink" title="node.js 介绍"></a><strong>node.js 介绍</strong></h3><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。<br>Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。<br>Node.js 的包管理器 npm，是全球最大的开源库生态系统。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/nodeJs%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">ECMAScript6 实用笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 16:19:30" itemprop="dateCreated datePublished" datetime="2020-03-29T16:19:30+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p> 1、目前常用的版本是ECMAScript3.0，后来改了名字叫ECMAScript5</p>
-<blockquote>
-<p>ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言。<br>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现</p>
-</blockquote>
-<p> 2、ECMAScript6的特点：</p>
-<blockquote>
-<ul>
-<li>ES6增添了许多必要的特性，例如模块和类，块级作用域，常量与变量</li>
-</ul>
-</blockquote>
-<p>3、浏览器的支持程度</p>
-<blockquote>
-<ul>
-<li><a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">http://kangax.github.io/compat-table/es6/</a></li>
-</ul>
-</blockquote>
-<p>4、可以通过Babel转码器把ES6写的代码转成ES5的，就不用担心运行环境是否支持<br>5、chrome下使用ES6为保证可以正常使用大部分语法，需要使用严格模式，即在js开始部分加上’use strict’<br>6、在firefox下使用ES6为保证可以正常使用大部分语法，需要知道测试版本，即在script标签的type属性中加上“application/javascript;version=1.7”属性值</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/ECMAScript6-%E5%AE%9E%E7%94%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">js的闭包详解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 16:09:20" itemprop="dateCreated datePublished" datetime="2020-03-29T16:09:20+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="js变量作用域"><a href="#js变量作用域" class="headerlink" title="js变量作用域"></a>js变量作用域</h2><p>js的变量作用域有两种，全局变量和局部变量</p>
-<p>需要注意的是，函数内部可以直接读取全局变量。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = <span class="number">666</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(global);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">//666</span></span><br></pre></td></tr></table></figure>
-<p>函数外部无法读取到函数内部的局部变量，因为函数在执行完之后，函数内部的环境就被销毁了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/js%E7%9A%84%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">js的面向对象详解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-29 16:04:20" itemprop="dateCreated datePublished" datetime="2020-03-29T16:04:20+08:00">2020-03-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>3.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="对象的创建："><a href="#对象的创建：" class="headerlink" title="对象的创建："></a>对象的创建：</h2><ul>
-<li>创建一个面向对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">obj.name = <span class="string">'haha'</span>;</span><br><span class="line">obj.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  alert(obj.name);</span><br><span class="line">&#125;</span><br><span class="line">obj.showName();</span><br></pre></td></tr></table></figure>
-缺点：当我们想创建多个面向对象的时候，重复代码过多，需要封装，所以有了工厂方法。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/29/js%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/20/%E5%B0%8F%E7%99%BD%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/%E5%B0%8F%E7%99%BD%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/" class="post-title-link" itemprop="url">小白要掌握的常用Git命令清单</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-20 09:45:00" itemprop="dateCreated datePublished" datetime="2020-03-20T09:45:00+08:00">2020-03-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>3.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>记录一下工作中常用到的git命令，只是简单的笔记</p>
-<p>几个专用名词的译名如下。</p>
-<ul>
-<li>Workspace：工作区</li>
-<li>Index / Stage：暂存区</li>
-<li>Repository：仓库区（或本地仓库）</li>
-<li>Remote：远程仓库</li>
-</ul>
-<h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在当前目录新建一个Git代码库</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init [project-name]</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载一个项目和它的整个代码历史</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> [url]</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/20/%E5%B0%8F%E7%99%BD%E8%A6%81%E6%8E%8C%E6%8F%A1%E7%9A%84%E5%B8%B8%E7%94%A8Git%E5%91%BD%E4%BB%A4%E6%B8%85%E5%8D%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/%E4%BD%BF%E7%94%A8SSH%E8%BF%9E%E6%8E%A5%E5%88%B0GitHub/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/tx.jpg">
-      <meta itemprop="name" content="king">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="记忆的时间差">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/08/%E4%BD%BF%E7%94%A8SSH%E8%BF%9E%E6%8E%A5%E5%88%B0GitHub/" class="post-title-link" itemprop="url">使用SSH连接到GitHub</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-08 09:25:44" itemprop="dateCreated datePublished" datetime="2020-03-08T09:25:44+08:00">2020-03-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="关于-SSH"><a href="#关于-SSH" class="headerlink" title="关于 SSH"></a>关于 SSH</h2><p>使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 GitHub，而无需在每次访问时提供用户名或密码。</p>
-<h2 id="检查现有-SSH-密钥"><a href="#检查现有-SSH-密钥" class="headerlink" title="检查现有 SSH 密钥"></a>检查现有 SSH 密钥</h2><p>在生成 SSH 密钥之前，您可以检查是否有任何现有的 SSH 密钥。</p>
-<ul>
-<li>打开 Git Bash。</li>
-<li>输入 <code>ls -al ~/.ssh</code> 以查看是否存在现有 SSH 密钥：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls -al ~/.ssh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出 .ssh 目录中的文件（如果有）</span></span><br></pre></td></tr></table></figure></li>
-<li>检查目录列表以查看是否已经有 SSH 公钥。 默认情况下，公钥的文件名是以下之一：<ul>
-<li>id_rsa.pub</li>
-<li>id_ecdsa.pub</li>
-<li>id_ed25519.pub
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/08/%E4%BD%BF%E7%94%A8SSH%E8%BF%9E%E6%8E%A5%E5%88%B0GitHub/#more" rel="contents">
+              <a class="btn" href="/2020/04/03/puppeteer%E7%B3%BB%E5%88%97%E6%95%99%E7%A8%8B-01puppeteer%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1102,7 +1034,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1170,20 +1102,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1225,12 +1157,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">248k</span>
+    <span title="站点总字数">286k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:45</span>
+    <span title="站点阅读时长">4:20</span>
 </div>
 
         
