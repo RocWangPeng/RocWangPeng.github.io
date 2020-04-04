@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="下载图灵图书借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。 Puppeteer能做什么  对网页进行截图保存为图片或 pdf 抓取单页应用(SPA)执行并渲染(解决传统 HTTP 爬虫抓取单页应用难以处理异步请求的问题) 做表单的自动提交、UI的自动化测试、模拟键盘输入等 用浏览器自带的一些调试工具和性能分析工具帮助我们">
+  <meta name="description" content="puppeteer实践-批量下载图灵图书下载图灵图书借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。 Puppeteer能做什么  对网页进行截图保存为图片或 pdf 抓取单页应用(SPA)执行并渲染(解决传统 HTTP 爬虫抓取单页应用难以处理异步请求的问题) 做表单的自动提交、UI的自动化测试、模拟键盘输入等 用浏览器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="puppeteer实践-批量下载图灵图书">
 <meta property="og:url" content="http://yoursite.com/2020/04/03/puppeteer%E5%AE%9E%E8%B7%B5-%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%81%B5%E5%9B%BE%E4%B9%A6/index.html">
 <meta property="og:site_name" content="记忆的时间差">
-<meta property="og:description" content="下载图灵图书借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。 Puppeteer能做什么  对网页进行截图保存为图片或 pdf 抓取单页应用(SPA)执行并渲染(解决传统 HTTP 爬虫抓取单页应用难以处理异步请求的问题) 做表单的自动提交、UI的自动化测试、模拟键盘输入等 用浏览器自带的一些调试工具和性能分析工具帮助我们">
+<meta property="og:description" content="puppeteer实践-批量下载图灵图书下载图灵图书借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。 Puppeteer能做什么  对网页进行截图保存为图片或 pdf 抓取单页应用(SPA)执行并渲染(解决传统 HTTP 爬虫抓取单页应用难以处理异步请求的问题) 做表单的自动提交、UI的自动化测试、模拟键盘输入等 用浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200403162959.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200403163112.png">
@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="下载图灵图书"><a href="#下载图灵图书" class="headerlink" title="下载图灵图书"></a>下载图灵图书</h2><p>借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。</p>
+        <h1 id="puppeteer实践-批量下载图灵图书"><a href="#puppeteer实践-批量下载图灵图书" class="headerlink" title="puppeteer实践-批量下载图灵图书"></a>puppeteer实践-批量下载图灵图书</h1><h2 id="下载图灵图书"><a href="#下载图灵图书" class="headerlink" title="下载图灵图书"></a>下载图灵图书</h2><p>借助无头浏览器 Puppeteer 的无头模式，实现简单的下载已购买书籍为 pdf 到本地的脚本，支持批量下载已购买的书籍。</p>
 <p><strong>Puppeteer能做什么</strong></p>
 <ul>
 <li>对网页进行截图保存为图片或 pdf</li>
@@ -368,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载图灵图书"><span class="nav-number">1.</span> <span class="nav-text">下载图灵图书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">2.</span> <span class="nav-text">实现流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">3.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#puppeteer实践-批量下载图灵图书"><span class="nav-number">1.</span> <span class="nav-text">puppeteer实践-批量下载图灵图书</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载图灵图书"><span class="nav-number">1.1.</span> <span class="nav-text">下载图灵图书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现流程"><span class="nav-number">1.2.</span> <span class="nav-text">实现流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">1.3.</span> <span class="nav-text">完整代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -384,20 +384,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -439,12 +439,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
         
