@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>泰啤趣味H5动画</title>
+    <url>/2020/04/22/%E6%B3%B0%E5%95%A4%E8%B6%A3%E5%91%B3H5%E5%8A%A8%E7%94%BB/</url>
+    <content><![CDATA[<h2 id="泰啤趣味H5动画"><a href="#泰啤趣味H5动画" class="headerlink" title="泰啤趣味H5动画"></a>泰啤趣味H5动画</h2><p>移动端春节传播H5趣味动画</p>
+<p>主要使用html5+css3过渡、关键帧动画另外配合JS定时器进行开发</p>
+<a id="more"></a>
+
+<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422174119.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422174139.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422174242.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>案例</category>
+      </categories>
+      <tags>
+        <tag>案例</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+小程序+app保险综合平台</title>
+    <url>/2020/04/22/vue-%E5%B0%8F%E7%A8%8B%E5%BA%8F-app%E4%BF%9D%E9%99%A9%E7%BB%BC%E5%90%88%E5%B9%B3%E5%8F%B0/</url>
+    <content><![CDATA[<h2 id="晟联-保信平台"><a href="#晟联-保信平台" class="headerlink" title="晟联/保信平台"></a>晟联/保信平台</h2><p>基于保险，法律，广告的整合传播平台， 负责整个项目PC、移动、小程序、APP端的前端工作</p>
+<h2 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h2><h3 id="PC端"><a href="#PC端" class="headerlink" title="PC端"></a>PC端</h3><ul>
+<li><p>开发模式：前后端分离</p>
+</li>
+<li><p>前后通信:axios</p>
+</li>
+<li><p>UI框架：bootstarp、layui</p>
+</li>
+<li><p>JS框架：jquery</p>
+</li>
+<li><p>可视化框架：echarts</p>
+</li>
+<li><p>涉及功能：</p>
+<ul>
+<li>登陆权限验证、商品展示、jsonp、前后端交互、文档撰写</li>
+<li>懒加载、标签云、无缝轮播、二维码生成、<a id="more"></a>
+<h3 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h3></li>
+</ul>
+</li>
+<li><p>开发模式：前后端分离</p>
+</li>
+<li><p>前端框架：VUE、vueRouter、vant</p>
+</li>
+<li><p>可视化框架：echarts</p>
+</li>
+<li><p>前后通信:axios</p>
+</li>
+<li><p>css预处理：less</p>
+</li>
+<li><p>构建工具：webpack</p>
+</li>
+</ul>
+<h3 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h3><p>css框架 ：weui</p>
+<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173747.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173801.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173817.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173829.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>案例</category>
+      </categories>
+      <tags>
+        <tag>案例</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue+node移动电商项目-全栈</title>
+    <url>/2020/04/22/vue-node%E7%A7%BB%E5%8A%A8%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE-%E5%85%A8%E6%A0%88/</url>
+    <content><![CDATA[<h2 id="koa-vue移动电商"><a href="#koa-vue移动电商" class="headerlink" title="koa+vue移动电商"></a>koa+vue移动电商</h2><p>移动电商系统，包括首页展示，类别展示，购物功能，注册登录，积分系统，查找页面，后台接口设置，数据库采用在线mlab在线的mongo数据库</p>
+<a id="more"></a>
+<h2 id="主要技术栈列表"><a href="#主要技术栈列表" class="headerlink" title="主要技术栈列表"></a>主要技术栈列表</h2><ul>
+<li>Vue</li>
+<li>Vuex</li>
+<li>Router</li>
+<li>Vant</li>
+<li>Node</li>
+<li>Koa2</li>
+<li>Mongoose</li>
+<li>MongoDB</li>
+</ul>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
+<li>首页展示</li>
+<li>类别展示</li>
+<li>购物功能</li>
+<li>注册登录</li>
+<li>积分系统</li>
+<li>查找页面</li>
+<li>后台接口设置</li>
+</ul>
+<h2 id="ScreenShot"><a href="#ScreenShot" class="headerlink" title="ScreenShot"></a>ScreenShot</h2><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173308.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173332.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173350.png" alt=""><br><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200422173404.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>案例</category>
+      </categories>
+      <tags>
+        <tag>案例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用typescript封装axios</title>
     <url>/2020/04/22/%E4%BD%BF%E7%94%A8typescript%E5%B0%81%E8%A3%85axios/</url>
     <content><![CDATA[<p>我们在开发中广泛使用的axios调用接口，为了更好地调用，做一些全局的拦截，我们通常会对其进行一下封装，本小节我们就来看下如何使用TypeScript对它进行封装，使其同时能够有很好的类型支持。</p>
@@ -1717,9 +1811,11 @@
 </blockquote>
 ]]></content>
       <categories>
+        <category>案例</category>
         <category>桌面端开发</category>
       </categories>
       <tags>
+        <tag>案例</tag>
         <tag>electron</tag>
       </tags>
   </entry>
@@ -1809,10 +1905,12 @@
 <h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                resolve(<span class="number">1</span>)</span><br><span class="line">            &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">                reject(<span class="number">0</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, delay)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> delay = <span class="number">1000</span></span><br><span class="line"><span class="comment">// 以下拿掘金开刀,贡献私人测试账号</span></span><br><span class="line">puppeteer.launch(&#123;<span class="attr">headless</span>: <span class="literal">false</span>&#125;).then(<span class="keyword">async</span> browser =&gt; &#123;</span><br><span class="line">    <span class="keyword">var</span> page = <span class="keyword">await</span> browser.newPage()</span><br><span class="line">    page.setViewport(&#123;<span class="attr">width</span>: <span class="number">1200</span>, <span class="attr">height</span>: <span class="number">600</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 1. 到sf获取最新的前端文章 **/</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> page.goto(<span class="string">'https://segmentfault.com/news/frontend'</span>)</span><br><span class="line">        <span class="keyword">await</span> timeout(delay)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> SfFeArticleList = <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> list = [...document.querySelectorAll(<span class="string">'.news__list .news__item-title a'</span>)]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> list.map(<span class="function"><span class="params">el</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;<span class="attr">href</span>: el.href.trim(), <span class="attr">title</span>: el.innerText&#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'SfFeArticleList:'</span>, SfFeArticleList);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.screenshot(&#123;<span class="attr">path</span>: <span class="string">'./data/sf-juejin/sf.png'</span>, <span class="attr">type</span>: <span class="string">'png'</span>&#125;);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'sf err:'</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 登录juejin **/</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> timeout(<span class="number">3000</span>)</span><br><span class="line">        <span class="keyword">await</span> page.goto(<span class="string">'https://juejin.im'</span>)</span><br><span class="line">        <span class="keyword">await</span> timeout(<span class="number">3000</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> login = <span class="keyword">await</span> page.$(<span class="string">'.login'</span>)</span><br><span class="line">        <span class="keyword">await</span> login.click()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> loginPhoneOrEmail = <span class="keyword">await</span> page.$(<span class="string">'[name=loginPhoneOrEmail]'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'loginPhoneOrEmail:'</span>, loginPhoneOrEmail);</span><br><span class="line">        <span class="keyword">await</span> loginPhoneOrEmail.click()</span><br><span class="line">        <span class="keyword">await</span> page.type(<span class="string">'18516697699@163.com'</span>, &#123;<span class="attr">delay</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> password = <span class="keyword">await</span> page.$(<span class="string">'[placeholder=请输入密码]'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'password:'</span>, password);</span><br><span class="line">        <span class="keyword">await</span> password.click()</span><br><span class="line">        <span class="keyword">await</span> page.type(<span class="string">'aaa123456'</span>, &#123;<span class="attr">delay</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> authLogin = <span class="keyword">await</span> page.$(<span class="string">'.panel .btn'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'authLogin:'</span>, authLogin);</span><br><span class="line">        <span class="keyword">await</span> authLogin.click()</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 随机推荐一篇从sf拿来的文章到掘金 **/</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> timeout(<span class="number">2500</span>)</span><br><span class="line">        <span class="keyword">var</span> seed = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">30</span>)</span><br><span class="line">        <span class="keyword">var</span> theArtile = SfFeArticleList[seed]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> add = <span class="keyword">await</span> page.$(<span class="string">'.main-nav .more'</span>)</span><br><span class="line">        <span class="keyword">await</span> add.click()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> addLink = <span class="keyword">await</span> page.$(<span class="string">'.more-list .item'</span>)</span><br><span class="line">        <span class="keyword">await</span> addLink.click()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> timeout(<span class="number">2500</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> shareUrl = <span class="keyword">await</span> page.$(<span class="string">'.entry-form-input .url-input'</span>)</span><br><span class="line">        <span class="keyword">await</span> shareUrl.click()</span><br><span class="line">        <span class="keyword">await</span> page.type(theArtile.href, &#123;<span class="attr">delay</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.press(<span class="string">'Tab'</span>)</span><br><span class="line">        <span class="keyword">await</span> page.type(theArtile.title, &#123;<span class="attr">delay</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.press(<span class="string">'Tab'</span>)</span><br><span class="line">        <span class="keyword">await</span> page.type(theArtile.title, &#123;<span class="attr">delay</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.evaluate(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> li = [...document.querySelectorAll(<span class="string">'.category-list-box .category-list .item'</span>)]</span><br><span class="line">            li.forEach(<span class="function"><span class="params">el</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (el.innerText == <span class="string">'前端'</span>)</span><br><span class="line">                    el.click()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> submitBtn = <span class="keyword">await</span> page.$(<span class="string">'.submit-btn'</span>)</span><br><span class="line">        <span class="keyword">await</span> submitBtn.click()</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="keyword">await</span> page.screenshot(&#123;<span class="attr">path</span>: <span class="string">'./data/sf-juejin/err.png'</span>, <span class="attr">type</span>: <span class="string">'png'</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> page.screenshot(&#123;<span class="attr">path</span>: <span class="string">'./data/sf-juejin/done.png'</span>, <span class="attr">type</span>: <span class="string">'png'</span>&#125;);</span><br><span class="line">    <span class="comment">// await page.close()</span></span><br><span class="line">    <span class="comment">// browser.close()</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>puppeteer</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>puppeteer</tag>
         <tag>自动化测试</tag>
+        <tag>案例</tag>
       </tags>
   </entry>
   <entry>
@@ -1868,10 +1966,12 @@
 ]]></content>
       <categories>
         <category>puppeteer</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>puppeteer</tag>
         <tag>自动化测试</tag>
+        <tag>案例</tag>
       </tags>
   </entry>
   <entry>
@@ -1934,10 +2034,12 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 下载图灵电子书</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> puppeteer = <span class="built_in">require</span>(<span class="string">'puppeteer'</span>);</span><br><span class="line"><span class="keyword">const</span> mkdirp = <span class="built_in">require</span>(<span class="string">'mkdirp'</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> BASE_URL = <span class="string">'http://www.ituring.com.cn'</span>;</span><br><span class="line"><span class="keyword">const</span> SHELF_URL = <span class="string">`<span class="subst">$&#123;BASE_URL&#125;</span>/user/shelf`</span>;</span><br><span class="line"><span class="keyword">const</span> LOGIN_URL = <span class="string">`http://account.ituring.com.cn/log-in?returnUrl=<span class="subst">$&#123;<span class="built_in">encodeURIComponent</span>(SHELF_URL)&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> printIturingBooks = <span class="keyword">async</span> (userName, password, saveDir = <span class="string">'./books/'</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (!userName) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'请输入用户名'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!password) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'请输入密码'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 设置统一的视窗大小</span></span><br><span class="line">        <span class="keyword">const</span> viewport = &#123;</span><br><span class="line">            width: <span class="number">1376</span>,</span><br><span class="line">            height: <span class="number">768</span>,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'启动浏览器'</span>);</span><br><span class="line">        <span class="keyword">const</span> browser = <span class="keyword">await</span> puppeteer.launch(&#123;</span><br><span class="line">            <span class="comment">// 关闭无头模式，方便我们看到这个无头浏览器执行的过程</span></span><br><span class="line">            <span class="comment">// 注意若调用了 Page.pdf 即保存为 pdf，则需要保持为无头模式</span></span><br><span class="line">            <span class="comment">// headless: false,</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'打开新页面'</span>);</span><br><span class="line">        <span class="keyword">const</span> page = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">        page.setViewport(viewport);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'输入登录地址'</span>);</span><br><span class="line">        <span class="keyword">await</span> page.goto(LOGIN_URL);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.waitForSelector(<span class="string">'#loginForm'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'输入用户名和密码'</span>);</span><br><span class="line">        <span class="keyword">await</span> page.focus(<span class="string">'#Email'</span>);</span><br><span class="line">        <span class="keyword">await</span> page.type(userName);</span><br><span class="line">        <span class="keyword">await</span> page.focus(<span class="string">'#Password'</span>);</span><br><span class="line">        <span class="keyword">await</span> page.type(password);</span><br><span class="line">        <span class="keyword">await</span> page.click(<span class="string">'#loginForm  input[type="submit"]'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> page.waitForSelector(<span class="string">'.block-items'</span>);</span><br><span class="line">        <span class="keyword">const</span> books = <span class="keyword">await</span> page.$<span class="built_in">eval</span>(<span class="string">'.block-items'</span>, element =&gt; &#123;</span><br><span class="line">            <span class="keyword">const</span> booksHTMLCollection = element.querySelectorAll(<span class="string">'.block-item'</span>);</span><br><span class="line">            <span class="keyword">const</span> booksElementArray = <span class="built_in">Array</span>.prototype.slice.call(booksHTMLCollection);</span><br><span class="line">            <span class="keyword">const</span> books = booksElementArray.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> a = item.querySelector(<span class="string">'.book-img a'</span>);</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    href: a.getAttribute(<span class="string">'href'</span>),</span><br><span class="line">                    title: a.getAttribute(<span class="string">'title'</span>),</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> books;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`书架上共找到<span class="subst">$&#123;books.length&#125;</span>本书`</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> book <span class="keyword">of</span> books) &#123;</span><br><span class="line">            <span class="keyword">const</span> bookPage = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">            bookPage.setViewport(viewport);</span><br><span class="line">            <span class="keyword">await</span> bookPage.goto(<span class="string">`<span class="subst">$&#123;BASE_URL&#125;</span>/<span class="subst">$&#123;book.href&#125;</span>`</span>);</span><br><span class="line">            <span class="keyword">await</span> bookPage.waitForSelector(<span class="string">'.bookmenu'</span>);</span><br><span class="line">            <span class="keyword">const</span> articles = <span class="keyword">await</span> bookPage.$<span class="built_in">eval</span>(<span class="string">'.bookmenu table tbody'</span>, element =&gt; &#123;</span><br><span class="line">                <span class="keyword">const</span> articlesHTMLCollection = element.querySelectorAll(<span class="string">'tr'</span>);</span><br><span class="line">                <span class="keyword">const</span> articlesElementArray = <span class="built_in">Array</span>.prototype.slice.call(articlesHTMLCollection);</span><br><span class="line">                <span class="keyword">const</span> articles = articlesElementArray.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">                    <span class="keyword">const</span> a = item.querySelector(<span class="string">'td a'</span>);</span><br><span class="line">                    <span class="keyword">return</span> &#123;</span><br><span class="line">                        href: a.getAttribute(<span class="string">'href'</span>),</span><br><span class="line">                        title: a.innerText.trim(),</span><br><span class="line">                    &#125;;</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">return</span> articles;</span><br><span class="line">            &#125;);</span><br><span class="line">            bookPage.close();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> article <span class="keyword">of</span> articles) &#123;</span><br><span class="line">                <span class="keyword">const</span> articlePage = <span class="keyword">await</span> browser.newPage();</span><br><span class="line">                articlePage.setViewport(viewport);</span><br><span class="line">                <span class="keyword">await</span> articlePage.goto(<span class="string">`<span class="subst">$&#123;BASE_URL&#125;</span>/<span class="subst">$&#123;article.href&#125;</span>`</span>);</span><br><span class="line">                <span class="keyword">await</span> articlePage.waitForSelector(<span class="string">'.article-detail'</span>);</span><br><span class="line">                <span class="keyword">await</span> articlePage.$<span class="built_in">eval</span>(<span class="string">'body'</span>, body =&gt; &#123;</span><br><span class="line">                    body.querySelector(<span class="string">'.layout-head'</span>).style.display = <span class="string">'none'</span>;</span><br><span class="line">                    body.querySelector(<span class="string">'.book-page .side'</span>).style.display = <span class="string">'none'</span>;</span><br><span class="line">                    body.querySelector(<span class="string">'#footer'</span>).style.display = <span class="string">'none'</span>;</span><br><span class="line">                    body.querySelector(<span class="string">'#toTop'</span>).style.display = <span class="string">'none'</span>;</span><br><span class="line">                    <span class="built_in">Promise</span>.resolve();</span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="keyword">const</span> dirPath = <span class="string">`<span class="subst">$&#123;saveDir&#125;</span>/<span class="subst">$&#123;book.title&#125;</span>`</span>;</span><br><span class="line">                <span class="keyword">const</span> fileName = <span class="string">`<span class="subst">$&#123;article.title.replace(<span class="regexp">/\//g</span>, <span class="string">'、'</span>)&#125;</span>.pdf`</span>;</span><br><span class="line">                <span class="keyword">const</span> filePath = <span class="string">`<span class="subst">$&#123;dirPath&#125;</span>/<span class="subst">$&#123;fileName&#125;</span>`</span>;</span><br><span class="line">                mkdirp.sync(dirPath);</span><br><span class="line">                <span class="keyword">await</span> page.emulateMedia(<span class="string">'screen'</span>);</span><br><span class="line">                <span class="keyword">await</span> articlePage.pdf(&#123;</span><br><span class="line">                    path: filePath,</span><br><span class="line">                    format: <span class="string">'A4'</span></span><br><span class="line">                &#125;);</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`保存成功: <span class="subst">$&#123;filePath&#125;</span>`</span>);</span><br><span class="line">                articlePage.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        browser.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> USER = process.argv[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> PASSWORD = process.argv[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> SAVE_DIR = process.argv[<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!USER || !PASSWORD) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'invalid user or password'</span>);</span><br><span class="line">    process.exit();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printIturingBooks(USER, PASSWORD, SAVE_DIR);</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>puppeteer</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>puppeteer</tag>
         <tag>自动化测试</tag>
+        <tag>案例</tag>
       </tags>
   </entry>
   <entry>
@@ -2596,9 +2698,11 @@
 ]]></content>
       <categories>
         <category>nodejs</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>nodejs</tag>
+        <tag>案例</tag>
         <tag>自动化</tag>
         <tag>脚本</tag>
       </tags>
@@ -2629,11 +2733,12 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; <span class="string">'实时热点'</span>: </span><br><span class="line">   [ <span class="string">'美国逮捕女斯诺登'</span>,</span><br><span class="line">     <span class="string">'成都隐秘母乳买卖'</span>,</span><br><span class="line">     <span class="string">'曝周杰伦青涩旧照'</span>,</span><br><span class="line">     <span class="string">'老头公交强吻女孩'</span>,</span><br><span class="line">     <span class="string">'王传君恋情曝光'</span>,</span><br><span class="line">     <span class="string">'杭州现奇葩窗口'</span>,</span><br><span class="line">     <span class="string">'忘带全班准考证'</span>,</span><br><span class="line">     <span class="string">'未成年持械拍网红'</span>,</span><br><span class="line">     <span class="string">'9秒揍儿子8拳'</span>,</span><br><span class="line">     <span class="string">'戴耳机穿轨道被撞'</span> ],</span><br><span class="line">  <span class="string">'今日热点'</span>: </span><br><span class="line">   [ <span class="string">'北京回龙观大火'</span>,</span><br><span class="line">     <span class="string">'选美冠军车祸身亡'</span>,</span><br><span class="line">     <span class="string">'2017高考'</span>,</span><br><span class="line">     <span class="string">'成都老火锅店被查'</span>,</span><br><span class="line">     <span class="string">'陈浩民娇妻秀身材'</span>,</span><br><span class="line">     <span class="string">'海边直播发现浮尸'</span>,</span><br><span class="line">     <span class="string">'曝印小天遭妻骗婚'</span>,</span><br><span class="line">     <span class="string">'苹果开发者大会'</span>,</span><br><span class="line">     <span class="string">'6万斤鱼缺氧死亡'</span>,</span><br><span class="line">     <span class="string">'安以轩夏威夷大婚'</span> ],</span><br><span class="line">  <span class="string">'民生热点'</span>: </span><br><span class="line">   [ <span class="string">'北京回龙观大火'</span>,</span><br><span class="line">     <span class="string">'2017高考'</span>,</span><br><span class="line">     <span class="string">'成都老火锅店被查'</span>,</span><br><span class="line">     <span class="string">'海边直播发现浮尸'</span>,</span><br><span class="line">     <span class="string">'苹果开发者大会'</span>,</span><br><span class="line">     <span class="string">'6万斤鱼缺氧死亡'</span>,</span><br><span class="line">     <span class="string">'北控外援训练猝死'</span>,</span><br><span class="line">     <span class="string">'武汉男子裸体捅人'</span>,</span><br><span class="line">     <span class="string">'多国与卡塔尔断交'</span>,</span><br><span class="line">     <span class="string">'美驻华外交官辞职'</span> ],</span><br><span class="line">  <span class="string">'电影'</span>: </span><br><span class="line">   [ <span class="string">'神奇女侠'</span>,</span><br><span class="line">     <span class="string">'异星觉醒'</span>,</span><br><span class="line">     <span class="string">'新木乃伊'</span>,</span><br><span class="line">     <span class="string">'中国推销员'</span>,</span><br><span class="line">     <span class="string">'荡寇风云'</span>,</span><br><span class="line">     <span class="string">'异兽来袭'</span>,</span><br><span class="line">     <span class="string">'李雷和韩梅梅'</span>,</span><br><span class="line">     <span class="string">'北极星'</span>,</span><br><span class="line">     <span class="string">'美好的意外'</span>,</span><br><span class="line">     <span class="string">'夏天19岁的肖像'</span> ],</span><br><span class="line">  <span class="string">'电视剧'</span>: </span><br><span class="line">   [ <span class="string">'龙珠传奇'</span>,</span><br><span class="line">     <span class="string">'楚乔传'</span>,</span><br><span class="line">     <span class="string">'欢乐颂2'</span>,</span><br><span class="line">     <span class="string">'欢乐颂'</span>,</span><br><span class="line">     <span class="string">'职场是个技术活'</span>,</span><br><span class="line">     <span class="string">'择天记'</span>,</span><br><span class="line">     <span class="string">'美食大冒险'</span>,</span><br><span class="line">     <span class="string">'废柴兄弟'</span>,</span><br><span class="line">     <span class="string">'人民的名义'</span>,</span><br><span class="line">     <span class="string">'三生三世十里桃花'</span> ],</span><br><span class="line">  <span class="string">'综艺'</span>: </span><br><span class="line">   [ <span class="string">'变形计'</span>,</span><br><span class="line">     <span class="string">'来吧冠军'</span>,</span><br><span class="line">     <span class="string">'拜托了冰箱'</span>,</span><br><span class="line">     <span class="string">'昆仑决'</span>,</span><br><span class="line">     <span class="string">'天生是优我'</span>,</span><br><span class="line">     <span class="string">'姐姐好饿'</span>,</span><br><span class="line">     <span class="string">'脑力男人时代'</span>,</span><br><span class="line">     <span class="string">'奔跑吧兄弟'</span>,</span><br><span class="line">     <span class="string">'我想和你唱'</span>,</span><br><span class="line">     <span class="string">'玫瑰之旅'</span> ] &#125;</span><br><span class="line">[Finished <span class="keyword">in</span> <span class="number">0.7</span>s]</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>nodejs</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>nodejs</tag>
-        <tag>爬虫</tag>
         <tag>案例</tag>
+        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -3165,9 +3270,11 @@
 ]]></content>
       <categories>
         <category>前端</category>
+        <category>案例</category>
         <category>浏览器插件开发</category>
       </categories>
       <tags>
+        <tag>案例</tag>
         <tag>chrome</tag>
         <tag>浏览器插件开发</tag>
       </tags>
@@ -5912,8 +6019,8 @@
         <category>css</category>
       </categories>
       <tags>
-        <tag>技巧</tag>
         <tag>css</tag>
+        <tag>技巧</tag>
       </tags>
   </entry>
   <entry>
@@ -6143,8 +6250,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
         <tag>技巧</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
