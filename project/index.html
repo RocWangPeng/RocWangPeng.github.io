@@ -1,174 +1,427 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="zh-CN">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/video.css" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="感谢您花时间阅读我的简历">
+<meta property="og:type" content="website">
+<meta property="og:title" content="项目陈列">
+<meta property="og:url" content="http://yoursite.com/project/index.html">
+<meta property="og:site_name" content="记忆的时间差">
+<meta property="og:description" content="感谢您花时间阅读我的简历">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://placekitten.com/1000/500">
+<meta property="article:published_time" content="2020-04-23T03:28:27.705Z">
+<meta property="article:modified_time" content="2020-04-23T03:28:27.705Z">
+<meta property="article:author" content="king">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://placekitten.com/1000/500">
+
+<link rel="canonical" href="http://yoursite.com/project/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title>项目陈列 | 记忆的时间差
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-<body>
-    <div class="videowrap">
-        <div class="containers">
-            <!-- <p class="comm-title">不积跬步,无以至千里</p> -->
-            <div class="zhufeng_video">
-                <h2>一、项目陈列</h2>
-                <ul class="clearfix">
-                    <li>
-                        <a href="javascript:;" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_css.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="个人轻博客">个人轻博客</h5>
-                                <h3 class="name">nodeJs+mongod全栈项目</h3>
-                                <img src="img/star.png" alt="">
-                                <p>技术:nodeJS、mongodb、axios</p>
-                                <div class="download">课程下载</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_js.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="移动端无人点餐">VUE无人点餐</h5>
-                                <h3 class="name">vue开发移动端点餐系统</h3>
-                                <img src="img/star.png" alt="">
-                                <p>技术:vue、vue-router、vuex</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./class/es6.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_es6.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="es6从入门到实战视频">es6从入门到实战视频</h5>
-                                <h3 class="name">授课讲师孟倩</h3>
-                                <img src="img/star.png" alt="">
-                                <p>快速掌握es6的实战视频
-                                    <br />125课时</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./class/ajax.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_ajax.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="Ajax精讲视频">Ajax精讲视频</h5>
-                                <h3 class="name">授课讲师周啸天</h3>
-                                <img src="img/star.png" alt="">
-                                <p>周啸天主讲
-                                    <br />125课时</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./class/vue.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_vue.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="珠峰VUE快速入门与实战">珠峰VUE快速入门与实战</h5>
-                                <h3 class="name">授课讲师姜文</h3>
-                                <img src="img/star.png" alt="">
-                                <p>快速入门VUE与实战
-                                    <br />共10课时</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./class/node.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_node.png" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="Node.js入门与实战">Node.js入门与实战</h5>
-                                <h3 class="name">授课讲师张仁阳</h3>
-                                <img src="img/star.png" alt="">
-                                <p>张仁阳主讲
-                                    <br />100课时</p>
-                                <a href="https://pan.baidu.com/s/1c1T7ZMC" target="_blank" class="download">猛击详情</a>
-                            </div>
-                        </a>
-                    </li>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-                    <li>
-                        <a href="./class/react.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_es6.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="React快速入门与实战">React快速入门与实战</h5>
-                                <h3 class="name">授课讲师张仁阳</h3>
-                                <img src="img/star.png" alt="">
-                                <p>张仁阳主讲
-                                    <br />14课时</p>
-                                <a href="https://pan.baidu.com/s/1nv7QaAP#list/path=%2F" target="_blank"
-                                    class="download">猛击详情</a>
-                            </div>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="https://pan.baidu.com/s/1qYp4oO0" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_es6.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="前端面试题精讲视频">前端面试题精讲视频</h5>
-                                <h3 class="name">珠峰培训出品</h3>
-                                <img src="img/star.png" alt="">
-                                <p>轻松拿高薪系列，100道面试题精讲</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="videoDownload.html" target="_blank">
-                            <div class="pic">
-                                <img src="img/pic_web.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <h5 title="更多专业前端视频">更多专业前端视频</h5>
-                                <h3 class="name">珠峰培训经典视频系列</h3>
-                                <img src="img/star.png" alt="">
-                                <p>全部专业前端视频尽在珠峰培训</p>
-                                <div class="download">猛击详情</div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
+  </div>
 
-    <!-- 导流页第二部分:课程简介和开课时间 -->
-    <div class="coureWrap">
-        <div class="container">
-            <div class="course">
-                <h2>二、简单介绍</h2>
-                <p>王鹏,从事前端工作,爱好旅行以及一切富有创造性的事物。
-                    <br>王鹏,从事大前端工作,爱好旅行以及一切富有创造性的事物。
-                    <br>大学专业学习计算机，毕业直接踏入上海，初出茅庐,没方向,客服,销售,运营...
-                    <br>碌碌一年后，重新规划人生方向，从此走上码农这条不归路，实际工作中，比较喜欢折腾，只要感兴趣的一些东西都会去研究，而后不断的工作生涯中，接触各种类型的项目，通过自己脚踏实地的努力，不断积累的项目经验与开发经验，让自己对技术的理解有了更深的领悟，学习需要持之以恒，热爱并享受代码给带来的喜悦感，学习与生活一样，脚踏实地，不吹不捧，永远学习在路上...
-                    <br>
-                    目前涉猎技术覆盖:web方向,移动端方向，桌面端，nodejs，及浏览器插件开发，可基于nodeJs+前端开发轻全栈项目，不要问是否精通，精通对于程序员来说，是不存在的，只有一个不断提升的过程.
-                </p>
-            </div>
-        </div>
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">记忆的时间差</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">实践是检验真理的唯一标准</p>
+  </div>
 
-    <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-作品">
+
+    <a href="/project/" rel="section"><i class="fa fa-fw fa-th"></i>作品</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">项目陈列
+</h1>
+
+<div class="post-meta">
+    <div class="post-description">感谢您花时间阅读我的简历</div>
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><img src="//placekitten.com/1000/500" alt="image"></p>
+<h2 id="项目作品"><a href="#项目作品" class="headerlink" title="项目作品"></a>项目作品</h2><p>此处仅展示部分项目<br>项目总体情况：全栈项目5+、移动端项目15+、微信小程序3+、常规企业项目30+</p>
+<h3 id="浏览器下单插件"><a href="#浏览器下单插件" class="headerlink" title="浏览器下单插件"></a>浏览器下单插件</h3><p><strong>介绍</strong><br>是一款针对谷歌及360浏览器的扩展插件,,服务于公司内部员工，主要功能为打开京东或者淘宝后，可以辅助员工进行自动化的购买下单流程<br><strong>贡献</strong><br>使用浏览器扩展api及原生js进行开发,此项目的完成为单员工提高效率6倍以上</p>
+<h3 id="游戏平台移动App"><a href="#游戏平台移动App" class="headerlink" title="游戏平台移动App"></a>游戏平台移动App</h3><p><strong>介绍</strong><br>项目为一款各种小游戏集合的综合平台，为用户提供方便的游戏体验，包含用户游戏中的各项附属功能，充值，提现，绑卡，支付报表等<br><strong>贡献</strong><br>整个项目体验从零开始进行开发,第一版使用uniapp+weex进行的app开发，第二版为了提升性能使用ReactNative进行的重构开发</p>
+<h3 id="游戏平台后台管理系统"><a href="#游戏平台后台管理系统" class="headerlink" title="游戏平台后台管理系统"></a>游戏平台后台管理系统</h3><p><strong>介绍</strong><br>项目为游戏平台的后台管理系统,包含会员管理，⻛控管理，⽀付管理，站点管理，代理管理，<br>站点配置，app发布管理，socket信息通知，模板切换等相关体系功能<br><strong>贡献</strong><br>此项目也是从零开始搭建,技术选项采用vue生态vue vueRouter elementUi axios后台模型采用d2admin,结合业务api进行所有公共组件的二次封装，菜单权限采用api配置加前端动态添加，数据分析及可视化，采用echars，在线客服及订单推送采用socketIo</p>
+<h3 id="晟联保信平台"><a href="#晟联保信平台" class="headerlink" title="晟联保信平台"></a>晟联保信平台</h3><p><strong>介绍</strong><br>项目为保险综合服务平台，目的为保险公司及保险代理人员进行周边生态产品闭环服务<br>项目架构比较多元化，分为pc端，H5端，微信小程序端，android与ios端<br><strong>贡献</strong><br>我主要负责整个平台前端产品的架构与具体产品的技术开发<br>技术vue vueRouter vant bootstarp layui echars uniapp<br><strong>项目地址</strong><br><a href="https://gitee.com/shijiancha/sinelinked" target="_blank" rel="noopener">https://gitee.com/shijiancha/sinelinked</a></p>
+<h3 id="移动端电商应用"><a href="#移动端电商应用" class="headerlink" title="移动端电商应用"></a>移动端电商应用</h3><p><strong>介绍</strong><br>个人独立开发的全栈移动电商系统，包括产品展示，类别展示，购物功能，注册登录，积分系统，查找页面，后台接口设置，数据库采用在线mlab在线的mongo数据库<br><strong>贡献</strong><br>技术Vue Vuex Router Vant Node Koa2 Mongoose MongoDB<br><strong>项目地址</strong><br><a href="https://gitee.com/shijiancha/mobileMall" target="_blank" rel="noopener">https://gitee.com/shijiancha/mobileMall</a></p>
+<h3 id="帮5买电商网站"><a href="#帮5买电商网站" class="headerlink" title="帮5买电商网站"></a>帮5买电商网站</h3><p><strong>介绍</strong><br>网站为第三方帮购平台，用户在京东,淘宝等通过浏览器插件下单同步至帮购平台，委与我司进行帮购<br><strong>贡献</strong><br>我在此项目中主要负责购物车模块的页面开发与接口对接，所使用技术：浏览器拓展api,原生js,lodash,jquery,自主封装ui库<br><strong>项目地址</strong><br><a href="http://www.b5m.com/" target="_blank" rel="noopener">http://www.b5m.com/</a></p>
+<h3 id="electron轻量级前端自动部署工具"><a href="#electron轻量级前端自动部署工具" class="headerlink" title="electron轻量级前端自动部署工具"></a>electron轻量级前端自动部署工具</h3><p><strong>介绍</strong><br>为了解决小团队能让前端项目快速部署到服务器的问题，基于node+electron开发一键部署前端项目至服务器的轻量工具<br><strong>贡献</strong><br>个人项目独立开发主要使用electron框架+node调用shell命令进行的开发<br><strong>项目地址</strong><br><a href="https://github.com/RocWangPeng/deploy-dog" target="_blank" rel="noopener">https://github.com/RocWangPeng/deploy-dog</a></p>
+<h3 id="泰啤趣味H5动画"><a href="#泰啤趣味H5动画" class="headerlink" title="泰啤趣味H5动画"></a>泰啤趣味H5动画</h3><p><strong>介绍</strong><br>为泰山原浆开发的移动端春节传播H5趣味动画<br><strong>贡献</strong><br>主要使用html5+css3过渡、关键帧动画另外配合JS定时器进行开发<br><strong>项目地址</strong><br><a href="https://gitee.com/shijiancha/tpH5" target="_blank" rel="noopener">https://gitee.com/shijiancha/tpH5</a></p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目作品"><span class="nav-number">1.</span> <span class="nav-text">项目作品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器下单插件"><span class="nav-number">1.1.</span> <span class="nav-text">浏览器下单插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏平台移动App"><span class="nav-number">1.2.</span> <span class="nav-text">游戏平台移动App</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏平台后台管理系统"><span class="nav-number">1.3.</span> <span class="nav-text">游戏平台后台管理系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#晟联保信平台"><span class="nav-number">1.4.</span> <span class="nav-text">晟联保信平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端电商应用"><span class="nav-number">1.5.</span> <span class="nav-text">移动端电商应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帮5买电商网站"><span class="nav-number">1.6.</span> <span class="nav-text">帮5买电商网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#electron轻量级前端自动部署工具"><span class="nav-number">1.7.</span> <span class="nav-text">electron轻量级前端自动部署工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泰啤趣味H5动画"><span class="nav-number">1.8.</span> <span class="nav-text">泰啤趣味H5动画</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="king"
+      src="/images/tx.jpg">
+  <p class="site-author-name" itemprop="name">king</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/RocWangPeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;RocWangPeng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:383557980@qq.com" title="E-Mail → mailto:383557980@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">king</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">413k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:16</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
 </body>
-
 </html>
