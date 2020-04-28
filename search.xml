@@ -6668,7 +6668,7 @@
 <p>会报错</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Cannot read property <span class="string">'bark'</span> <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
 <p>因为普通对象实例是没有<code>prototype</code>这个属性的，也就是说普通对象的<code>prototype</code>属性的值是<code>undefined</code>。</p>
-<p><strong>解读：</strong><br>所有的函数都有<code>prototype</code>属性，因为所有的函数都可以被当作构造函数。当构造函数构造实例时，首先创建一个空对象，然后按照函数中对<code>this</code>的操作把空对象操作一遍，最后再把构造函数中的<code>prototype</code>的值赋给这个对象。</p>
+<p><strong>解读：</strong><br>所有的函数都有<code>prototype</code>属性，因为所有的函数都可以被当作构造函数。函数的<code>prototype</code>内的<code>construtor</code>指向当前的构造函数，当构造函数构造实例时，首先创建一个空对象，然后按照函数中对<code>this</code>的操作把空对象操作一遍，最后再把构造函数中的<code>prototype</code>的值赋给这个对象。</p>
 <p>实例也是有属性指向其构造函数的原型的：<code>__proto__</code>。<br>也就是说实例的<code>__proto__</code>指向构造函数的<code>prototype</code>属性</p>
 <p>2、一个页面的脚本如下，请问会打印出什么内容？</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__ === <span class="built_in">Object</span>.prototype)</span><br></pre></td></tr></table></figure>
@@ -6694,6 +6694,18 @@
 
 <h3 id="手写一个ajax"><a href="#手写一个ajax" class="headerlink" title="手写一个ajax"></a>手写一个ajax</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">        xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>)</span><br><span class="line">        xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">                    resolve(</span><br><span class="line">                        <span class="built_in">JSON</span>.parse(xhr.responseText)</span><br><span class="line">                    )</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (xhr.status === <span class="number">404</span> || xhr.status === <span class="number">500</span>) &#123;</span><br><span class="line">                    reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'404 not found'</span>))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        xhr.send(<span class="literal">null</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'/data/test.json'</span></span><br><span class="line">ajax(url)</span><br><span class="line">.then(<span class="function"><span class="params">res</span> =&gt;</span> <span class="built_in">console</span>.log(res))</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(err))</span><br></pre></td></tr></table></figure>
 
+<h3 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h3><p>DOM事件流三个阶段</p>
+<ul>
+<li>捕获阶段:事件从window对象自上而下向目标节点传播的阶段</li>
+<li>目标阶段:真正的目标节点正在处理事件的阶段</li>
+<li>冒泡阶段:事件从目标节点自下而上向window对象传播的阶段<br>img(<a href="https://pic1.zhimg.com/v2-4de189d2a42b1e8c74b379e067b67578_r.jpg" target="_blank" rel="noopener">https://pic1.zhimg.com/v2-4de189d2a42b1e8c74b379e067b67578_r.jpg</a>)</li>
+</ul>
+<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p>Events 可以使用 Event 构造函数创建如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> Event(<span class="string">'build'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Listen for the event.</span></span><br><span class="line">elem.addEventListener(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; ... &#125;, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dispatch the event.</span></span><br><span class="line">elem.dispatchEvent(event);</span><br></pre></td></tr></table></figure>
+<p>要向事件对象添加更多数据，可以使用 <code>CustomEvent</code>，<code>detail</code> 属性可用于传递自定义数据</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> CustomEvent(<span class="string">'build'</span>, &#123; <span class="string">'detail'</span>: elem.dataset.time &#125;);</span><br><span class="line"></span><br><span class="line">elem.addEventListener(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; </span><br><span class="line">     log(<span class="string">'The time is: '</span> + e.detail);</span><br><span class="line"> &#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+
 
 
 <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="使用CSS变量"><a href="#使用CSS变量" class="headerlink" title="使用CSS变量"></a>使用CSS变量</h3><p><strong>变量的声明</strong><br>声明变量的时候，变量名前面要加两根连词线<code>（--）</code>。</p>
@@ -6705,7 +6717,42 @@
 <p><strong>JavaScript 操作 CSS 变量</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 设置变量</span></span><br><span class="line"><span class="built_in">document</span>.body.style.setProperty(<span class="string">'--primary'</span>, <span class="string">'#7F583F'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取变量</span></span><br><span class="line"><span class="built_in">document</span>.body.style.getPropertyValue(<span class="string">'--primary'</span>).trim();</span><br><span class="line"><span class="comment">// '#7F583F'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除变量</span></span><br><span class="line"><span class="built_in">document</span>.body.style.removeProperty(<span class="string">'--primary'</span>);</span><br></pre></td></tr></table></figure>
 
-
+<h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><h3 id="http协议的主要特点"><a href="#http协议的主要特点" class="headerlink" title="http协议的主要特点"></a>http协议的主要特点</h3><ul>
+<li>简单快速</li>
+<li>灵活</li>
+<li>无连接<ul>
+<li>连接一次就会断开</li>
+</ul>
+</li>
+<li>无状态</li>
+</ul>
+<h3 id="http报文的组成部分"><a href="#http报文的组成部分" class="headerlink" title="http报文的组成部分"></a>http报文的组成部分</h3><p><strong>请求报文</strong></p>
+<ul>
+<li>请求行（http方法，http协议，http版本）</li>
+<li>请求头（key，value值）</li>
+<li>空行</li>
+<li>请求体</li>
+</ul>
+<p><strong>响应报文</strong></p>
+<ul>
+<li>状态行</li>
+<li>响应头</li>
+<li>空行</li>
+<li>响应体</li>
+</ul>
+<h4 id="get与post的区别"><a href="#get与post的区别" class="headerlink" title="get与post的区别"></a>get与post的区别</h4><ul>
+<li>get通过url传递参数，post通过请求体传递</li>
+<li>get请求在url传输的参数有限制，post没有限制</li>
+<li>get请求会被浏览器主动缓存，post不可以，除非手动设置</li>
+<li>get只能进行url编码，post支持多种编码方式</li>
+</ul>
+<h4 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h4><ul>
+<li>1xx 指示信息-表示请求已被接收，继续处理</li>
+<li>2xx 成功，表示请求已被成功接收</li>
+<li>3xx 重定向 - </li>
+<li>4xx 客户端错误 - 请求有语法错误或者请求无法实现</li>
+<li>5xx 服务端错误</li>
+</ul>
 ]]></content>
       <tags>
         <tag>知识点</tag>
