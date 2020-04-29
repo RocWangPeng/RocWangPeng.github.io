@@ -6749,7 +6749,16 @@
 <li>4xx 客户端错误 - 请求有语法错误或者请求无法实现</li>
 <li>5xx 服务端错误</li>
 </ul>
-<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><h3 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">DNS 解析也是需要时间的，可以通过预解析的方式来预先获得域名所对应的 IP。</span><br></pre></td></tr></table></figure>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><h3 id="前端常用优化"><a href="#前端常用优化" class="headerlink" title="前端常用优化"></a>前端常用优化</h3><ul>
+<li>资源压缩</li>
+<li>资源请求合并</li>
+<li>async异步加载script脚本</li>
+<li>配置浏览器缓存，主要指强缓存和协商缓存</li>
+<li>按需加载</li>
+<li>骨架屏</li>
+<li>cdn加速</li>
+</ul>
+<h3 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">DNS 解析也是需要时间的，可以通过预解析的方式来预先获得域名所对应的 IP。</span><br></pre></td></tr></table></figure>
 
 <h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>缓存对于前端性能优化来说是个很重要的点，良好的缓存策略可以降低资源的重复加载提高网页的整体加载速度。</p>
 <p>通常浏览器缓存策略分为两种：强缓存和协商缓存。</p>
@@ -6764,23 +6773,61 @@
 <p>Last-Modified 表示本地文件最后修改日期，If-Modified-Since 会将 Last-Modified 的值发送给服务器，询问服务器在该日期后资源是否有更新，有更新的话就会将新的资源发送回来。</p>
 <p>但是如果在本地打开缓存文件，就会造成 Last-Modified 被修改，所以在 HTTP / 1.1 出现了 ETag 。</p>
 <p><strong>ETag 和 If-None-Match</strong><br>ETag 类似于文件指纹，If-None-Match 会将当前 ETag 发送给服务器，询问该资源 ETag 是否变动，有变动的话就将新的资源发送回来。并且 ETag 优先级比 Last-Modified 高。</p>
-<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p><strong>数据驱动视图</strong></p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="谈谈vue的生命周期"><a href="#谈谈vue的生命周期" class="headerlink" title="谈谈vue的生命周期"></a>谈谈vue的生命周期</h3><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200429151919.png" alt=""></p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p><strong>数据驱动视图</strong></p>
 <p>MVVM 是Model-View-ViewModel 的缩写，它是一种基于前端开发的架构模式，其核心是提供对View 和 ViewModel 的双向数据绑定，这使得ViewModel 的状态改变可以自动传递给 View，即所谓的数据双向绑定。ViewModel负责连接 View 和 Model，保证视图和数据的一致性</p>
 <h3 id="vue响应式原理"><a href="#vue响应式原理" class="headerlink" title="vue响应式原理"></a>vue响应式原理</h3><p><strong>1、Object.defineProperty</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> data = &#123;&#125;</span><br><span class="line"><span class="keyword">const</span> name = <span class="string">'zhangsan'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(data,<span class="string">'name'</span>,&#123;</span><br><span class="line">  <span class="keyword">get</span>:function()&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'get'</span>)</span><br><span class="line">    <span class="keyword">return</span> name</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>:function(newVal)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'set'</span>)</span><br><span class="line">    name = newVal</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">consle.log(data.name) <span class="comment">//get</span></span><br><span class="line">data.name = <span class="string">'xianxian'</span> <span class="comment">//set</span></span><br></pre></td></tr></table></figure>
 
-
+<p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 <code>Object.defineProperty</code> 把这些 property 全部转为 <code>getter/setter</code>。</p>
+<p>这些 getter/setter ，它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。</p>
 <h3 id="自定义组件的-v-model"><a href="#自定义组件的-v-model" class="headerlink" title="自定义组件的 v-model"></a>自定义组件的 v-model</h3><p>index.vue</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 自定义 v-model</span></span><br><span class="line">&lt;p&gt;&#123;&#123;name&#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;CustomVModel v-model="name"/</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <p>CustomVModel.vue</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;!-- 例如：vue 颜色选择 --&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span></span><br><span class="line">        :value=<span class="string">"text"</span></span><br><span class="line">        @input=<span class="string">"$emit('change', $event.target.value)"</span></span><br><span class="line">    &gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">        <span class="number">1.</span> 上面的 input 使用了 :value 而不是 v-model</span><br><span class="line">        <span class="number">2.</span> 上面的 change 和 model.event 要对应起来</span><br><span class="line">        <span class="number">3.</span> text1 属性对应起来</span><br><span class="line">    --&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">    model: &#123;</span></span><br><span class="line"><span class="regexp">        prop: 'text', /</span><span class="regexp">/ 对应 props text1</span></span><br><span class="line"><span class="regexp">        event: 'change'</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    props: &#123;</span></span><br><span class="line"><span class="regexp">        text1: String,</span></span><br><span class="line"><span class="regexp">        default() &#123;</span></span><br><span class="line"><span class="regexp">            return ''</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
 
+<h3 id="v-model的原理"><a href="#v-model的原理" class="headerlink" title="v-model的原理"></a>v-model的原理</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;input v-model=<span class="string">"something"</span>&gt;</span><br><span class="line"></span><br><span class="line">相当于</span><br><span class="line"></span><br><span class="line">&lt;input  v-bind:value=<span class="string">"something"</span> v-on:input=<span class="string">"something = $event.target.value"</span>&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h3><p>vue是异步进行渲染,当data改变之后，DOM不会立即渲染<br><code>$nextTick</code>会在DOM渲染完成之后被触发，以获取最新的DOM节点</p>
 <h3 id="为何v-for要使用key"><a href="#为何v-for要使用key" class="headerlink" title="为何v-for要使用key"></a>为何v-for要使用key</h3><ul>
-<li>key的作用就是更新组件时判断两个节点是否相同。相同就复用，不相同就删除旧的创建新的。</li>
+<li>diff算法中通过tag和key来进行判断比对，两个节点是否相同来更新组件，相同就复用，不相同就删除旧的创建新的。</li>
 <li>为了在数据变化时强制更新组件，以避免“原地复用”带来的副作用</li>
+<li>减少渲染次数，提升渲染性能</li>
 </ul>
+<h3 id="为何组件中的data必须是一个函数"><a href="#为何组件中的data必须是一个函数" class="headerlink" title="为何组件中的data必须是一个函数"></a>为何组件中的data必须是一个函数</h3><p>Object是引用数据类型,如果不用function 返回,每个组件的data 都是内存的同一个地址,一个数据改变了其他也改变了;</p>
+<p>javascipt只有函数构成作用域(注意理解作用域,只有函数的{}构成作用域,对象的{}以及 if(){}都不构成作用域)，data是一个函数时，每个组件实例都有自己的作用域，每个实例相互独立,不会相互影响</p>
+<h3 id="computed有何特点"><a href="#computed有何特点" class="headerlink" title="computed有何特点"></a>computed有何特点</h3><ul>
+<li>缓存，data不变不会重新计算</li>
+<li>提高性能</li>
+</ul>
+<h3 id="如何将所有props传递给子组件"><a href="#如何将所有props传递给子组件" class="headerlink" title="如何将所有props传递给子组件"></a>如何将所有props传递给子组件</h3><p>使用<code>$props</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;User v-bind=<span class="string">"$props"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vuex中action与mutation有何区别"><a href="#Vuex中action与mutation有何区别" class="headerlink" title="Vuex中action与mutation有何区别"></a>Vuex中action与mutation有何区别</h3><ul>
+<li>action中可以处理异步，mutation不可以处理异步</li>
+<li>mutation做原子操作（一般只单一的操作）</li>
+<li>action可以整合多个mutation</li>
+</ul>
+<h3 id="请用vnode描述一个dom结构"><a href="#请用vnode描述一个dom结构" class="headerlink" title="请用vnode描述一个dom结构"></a>请用vnode描述一个dom结构</h3><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200429103705.png" alt=""></p>
+<h3 id="vue性能优化"><a href="#vue性能优化" class="headerlink" title="vue性能优化"></a>vue性能优化</h3><h4 id="view层面"><a href="#view层面" class="headerlink" title="view层面"></a>view层面</h4><ul>
+<li>合理使用v-if和v-show</li>
+<li>合理使用 computed</li>
+<li>避免v-for和v-if同时使用<ul>
+<li>v-for优化级更高，每将v-for会重新计算</li>
+</ul>
+</li>
+<li>自定义事件，dom事件及时销毁</li>
+<li>合理使用keep-alive</li>
+</ul>
+<h2 id="react和vue的区别"><a href="#react和vue的区别" class="headerlink" title="react和vue的区别"></a>react和vue的区别</h2><ul>
+<li>都支持组件化</li>
+<li>都是数据驱动视图</li>
+<li>都使用vdom操作dom</li>
+<li>react使用jsx拥抱js，vue使用模板拥抱html</li>
+<li>react是函数式编程，vue是声明式编程</li>
+</ul>
+<h2 id="完整的项目流程"><a href="#完整的项目流程" class="headerlink" title="完整的项目流程"></a>完整的项目流程</h2><p><img src="https://raw.githubusercontent.com/RocWangPeng/king-static/master/20200429144558.png" alt=""></p>
 ]]></content>
       <tags>
         <tag>知识点</tag>
@@ -6927,6 +6974,56 @@
 ]]></content>
       <tags>
         <tag>知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端团队代码规范最佳实践</title>
+    <url>/2020/04/29/%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<p>一千个读者，就有一千个哈姆雷特。</p>
+<p>一千个程序员，就有一千种代码风格。</p>
+<p>那什么是代码风格呢？从小的来说，有的开发喜欢带分号，有的不喜欢带分号。有的喜欢使用空格，有的喜欢使用 Tab。有的喜欢空两个空格，有的喜欢四个空格。除了这些，还有一些关于代码的优化，如避免声明未使用，避免冗余的代码逻辑等。如果你是新参加工作的人员，又恰好遇到一个代码风格混乱，密密麻麻赋值前后都不带空格的项目，只能有苦难言了。</p>
+<p>因此团队合作中需要统一规范。</p>
+<a id="more"></a>
+
+<h2 id="ESLint-与约束"><a href="#ESLint-与约束" class="headerlink" title="ESLint 与约束"></a>ESLint 与约束</h2><p>统一编码规范不仅可以大幅提高代码可读性，甚至会提高代码质量。当我们设计了一套关于编码规范的规则集时，需要工具去辅助检测，这就是 <code>ESLint</code>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$ npm install eslint --save-dev</span><br></pre></td></tr></table></figure>
+<p>规则集需要统一集中配置，<code>ESLint</code> 会默认读取配置文件 <code>.eslintrc</code> 来解析，而规则集在 <code>rules</code> 中进行配置：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    <span class="string">"semi"</span>: [<span class="string">"error"</span>, <span class="string">"always"</span>],</span><br><span class="line">    <span class="string">"quotes"</span>: [<span class="string">"error"</span>, <span class="string">"double"</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而我们需要做的是设定我们的代码规范，即 <code>rules</code> 项</p>
+<h2 id="不要重复造轮子"><a href="#不要重复造轮子" class="headerlink" title="不要重复造轮子"></a>不要重复造轮子</h2><p>我们需要推到重来，设计属于自己团队的一套编码规范吗？</p>
+<p>完全没有必要推倒重来，既耗费人力，又难以做到规则的全部覆盖。</p>
+<p>很多优秀的团队，都根据最佳实践设定了特别优秀的编码规范，比如 <code>airbnb</code> 设定了一套约束特别强的规范。另外也有一些特别简单但却十分实用的规范，如 <code>eslint:recommended</code>。</p>
+<ul>
+<li>airbnb javascript style</li>
+</ul>
+<p>我们仅仅需要使用 <code>extend</code> 配置项去继承一些优秀的开源的代码规范，并使用 <code>rules</code> 做一些自己团队的规则补充。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"extend"</span>: [<span class="string">"airbnb-base"</span>],</span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    <span class="string">"semi"</span>: [<span class="string">"error"</span>, <span class="string">"never"</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>代码规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对与我得力的一些生产力工具</title>
+    <url>/2020/04/29/%E5%AF%B9%E4%B8%8E%E6%88%91%E5%BE%97%E5%8A%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h2><p>代码编辑器很多，有些是免费的，有些是付费的。其中最喜欢的代码编辑器是 Visual Studio Code。它是免费的，并具有强大的功能，我陆续抛弃了Atom、Sublime Text以及也很强大的WebStorm。</p>
+<h2 id="HBuilderX"><a href="#HBuilderX" class="headerlink" title="HBuilderX"></a>HBuilderX</h2><p>HBuilderX代码编辑器是DCloud开发的，周边很多生态相关产品，平时主要用他来做uniapp开发以及和vscode配合使用</p>
+<h2 id="uTools快速启动软件"><a href="#uTools快速启动软件" class="headerlink" title="uTools快速启动软件"></a>uTools快速启动软件</h2><p>uTools 是一款极简、插件化、跨平台、现代化的桌面增强效率软件，它为用户提供了一个可以随时呼出的“看似简单”的输入框 (搜索框)，但这个输入框却蕴含了近乎“无限”的能力。</p>
+<h2 id="cmder"><a href="#cmder" class="headerlink" title="cmder"></a>cmder</h2><p>Cmder是Windows下非常好用的终端模拟器， 常用于替换windows自带的终端。它可以在不同的标签页中同时连接不同的底层Shell</p>
+<h2 id="GifCam"><a href="#GifCam" class="headerlink" title="GifCam"></a>GifCam</h2><p>GifCam 是款集录制与剪辑为一体的屏幕GIF 动画制作工具，录制后的动画可以逐帧编辑</p>
+<h2 id="CamtasiaStudio（录屏工具）"><a href="#CamtasiaStudio（录屏工具）" class="headerlink" title="CamtasiaStudio（录屏工具）"></a>CamtasiaStudio（录屏工具）</h2><p>是一款功能强大的屏幕动作录制工具,能在任何颜色模式下轻松地记录屏幕动作(屏幕/摄像头),包括影像、音效、鼠标移动轨迹、解说声音等</p>
+<h2 id="Photoshop"><a href="#Photoshop" class="headerlink" title="Photoshop"></a>Photoshop</h2><p>图像处理软件</p>
+<h2 id="XMind"><a href="#XMind" class="headerlink" title="XMind"></a>XMind</h2><p>思维导图软件，为激发灵感和创意而生</p>
+<h2 id="Postman"><a href="#Postman" class="headerlink" title="Postman"></a>Postman</h2><p>一款接口测试工具</p>
+<h2 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h2><p>一款高效专业的实用型免费SSH客户端</p>
+<h2 id="PicGo"><a href="#PicGo" class="headerlink" title="PicGo"></a>PicGo</h2><p>一款比较优秀的图床工具</p>
+<h2 id="网易有道词典"><a href="#网易有道词典" class="headerlink" title="网易有道词典"></a>网易有道词典</h2><p>全能免费语言翻译软件</p>
+]]></content>
+      <tags>
+        <tag>工具</tag>
       </tags>
   </entry>
 </search>
